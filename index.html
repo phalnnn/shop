@@ -82,7 +82,7 @@
     }
     .btn-nav:active { background: var(--red-main); }
 
-    /* Header Compact */
+    /* Header */
     header { text-align: center; margin-bottom: 20px; }
     .status-tag {
       display: inline-flex;
@@ -178,6 +178,7 @@
       gap: 18px;
     }
 
+    /* Thẻ Card */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-line);
@@ -198,6 +199,7 @@
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85), 0 0 20px var(--red-glow);
     }
 
+    /* Hiệu ứng nổi bật khi chọn thẻ */
     .card.selected-active {
       border: 2px solid var(--red-main) !important;
       box-shadow: 0 0 35px var(--red-glow), inset 0 0 15px rgba(255, 30, 66, 0.3) !important;
@@ -281,6 +283,7 @@
     }
     .price-val span { color: var(--red-main); font-size: 13px; font-weight: 700; }
 
+    /* Nút Mua Ngay */
     .btn-buy {
       width: 100%;
       background: var(--red-main);
@@ -312,7 +315,7 @@
     .btn-buy:hover { background: #ff3355; box-shadow: 0 0 25px var(--red-glow); }
     .btn-buy:active { transform: scale(0.95); background: #e60026; }
 
-    /* Modals */
+    /* Modals Chung */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -329,17 +332,18 @@
     .modal {
       background: rgba(15, 17, 24, 0.98);
       border: 1px solid var(--border-red);
-      border-radius: 8px;
+      border-radius: 10px;
       width: 100%;
-      max-width: 440px;
-      padding: 22px 18px;
+      max-width: 580px; /* Độ rộng tối ưu cho PC & Mobile */
+      padding: 26px 24px;
       text-align: center;
       position: relative;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 30, 66, 0.25);
     }
 
     .close-btn {
       position: absolute;
-      top: 10px; right: 14px;
+      top: 12px; right: 16px;
       background: none; border: none;
       font-size: 26px; color: var(--gray-sub);
       cursor: pointer;
@@ -347,11 +351,12 @@
 
     .modal-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 800;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       color: var(--white-pure);
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .qr-frame {
@@ -427,139 +432,184 @@
     }
     .btn-copy-game.copied { background: #22c55e; }
 
-    /* ================= GIAO DIỆN LỊCH SỬ NÂNG CẤP ================= */
+    /* ================= BẢNG LỊCH SỬ NÂNG CẤP ================= */
     .history-top-actions {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 12px;
-      padding-bottom: 8px;
+      margin-top: 14px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--border-line);
     }
     .history-count {
-      font-size: 12px;
-      color: var(--gray-sub);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #94a3b8;
     }
     .btn-clear-history {
-      background: transparent;
+      background: rgba(255, 30, 66, 0.1);
       border: 1px solid rgba(255, 30, 66, 0.4);
       color: #ff4d6d;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
-      padding: 4px 8px;
-      border-radius: 3px;
+      padding: 6px 12px;
+      border-radius: 4px;
       cursor: pointer;
+      transition: all 0.2s;
     }
-    .btn-clear-history:hover { background: rgba(255, 30, 66, 0.15); }
+    .btn-clear-history:hover {
+      background: var(--red-main);
+      color: #ffffff;
+      box-shadow: 0 0 15px var(--red-glow);
+    }
 
     .history-list {
-      max-height: 380px;
+      max-height: 440px;
       overflow-y: auto;
       text-align: left;
-      margin-top: 10px;
+      margin-top: 14px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       padding-right: 4px;
     }
-    .history-list::-webkit-scrollbar { width: 4px; }
+    .history-list::-webkit-scrollbar { width: 5px; }
     .history-list::-webkit-scrollbar-thumb { background: var(--red-main); border-radius: 4px; }
 
     .history-card {
       background: rgba(10, 12, 18, 0.95);
       border: 1px solid var(--border-line);
-      border-left: 3px solid var(--red-main);
-      padding: 12px 14px;
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      border-left: 4px solid var(--red-main);
+      padding: 16px 18px;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
     }
     .history-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
-      margin-bottom: 6px;
+      font-size: 12px;
+      margin-bottom: 8px;
     }
     .history-badge-success {
       background: rgba(34, 197, 94, 0.15);
-      border: 1px solid rgba(34, 197, 94, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.5);
       color: #4ade80;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 800;
-      padding: 2px 6px;
-      border-radius: 3px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
     }
-    .history-time { color: #94a3b8; font-family: monospace; font-size: 10.5px; }
+    .history-time { color: #94a3b8; font-family: monospace; font-size: 12px; }
 
     .history-prod-name {
       font-weight: 700;
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: #ffffff;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
-    .history-prod-price { color: var(--red-main); font-family: 'Orbitron', sans-serif; font-size: 12px; }
+    .history-prod-price { 
+      color: var(--red-main); 
+      font-family: 'Orbitron', sans-serif; 
+      font-size: 15px; 
+      font-weight: 800; 
+    }
 
-    /* Bảng thông tin tách riêng Tài Khoản & Mật Khẩu */
     .cred-table {
-      background: #000000;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
-      padding: 8px 10px;
-      margin-bottom: 8px;
+      background: #050608;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 10px;
     }
     .cred-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
+      gap: 10px;
     }
     .cred-label {
       color: #94a3b8;
-      font-size: 11px;
-      font-weight: 600;
-      min-width: 45px;
+      font-size: 12.5px;
+      font-weight: 700;
+      min-width: 40px;
     }
     .cred-val {
       color: #38bdf8;
       font-family: monospace;
-      font-size: 12.5px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 170px;
+      font-size: 14px;
+      word-break: break-all;
+      flex: 1;
+      padding-right: 8px;
     }
+
+    /* Nút có Icon SVG */
     .btn-copy-chip {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #ffffff;
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 3px;
+      padding: 6px 10px;
+      border-radius: 4px;
       cursor: pointer;
       white-space: nowrap;
-      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
     }
-    .btn-copy-chip:hover { background: var(--red-main); border-color: var(--red-main); }
-    .btn-copy-chip.copied { background: #22c55e; border-color: #22c55e; }
+    .btn-copy-chip svg {
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
+    }
+    .btn-copy-chip:hover { 
+      background: var(--red-main); 
+      border-color: var(--red-main); 
+      box-shadow: 0 0 12px var(--red-glow);
+    }
+    .btn-copy-chip.copied { 
+      background: #22c55e !important; 
+      border-color: #22c55e !important; 
+    }
 
     .btn-copy-full {
       width: 100%;
       background: transparent;
-      border: 1px solid rgba(255, 30, 66, 0.4);
+      border: 1px solid rgba(255, 30, 66, 0.45);
       color: var(--white-pure);
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 6px;
-      border-radius: 3px;
+      padding: 10px;
+      border-radius: 4px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
     }
-    .btn-copy-full:hover { background: var(--red-main); }
+    .btn-copy-full svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+    .btn-copy-full:hover { 
+      background: var(--red-main); 
+      box-shadow: 0 0 18px var(--red-glow);
+    }
+    .btn-copy-full.copied {
+      background: #22c55e !important;
+      border-color: #22c55e !important;
+    }
   </style>
 </head>
 <body>
@@ -649,14 +699,14 @@
     </div>
   </div>
 
-  <!-- MODAL LỊCH SỬ MUA HÀNG MỚI -->
+  <!-- MODAL LỊCH SỬ MUA HÀNG -->
   <div class="modal-overlay" id="historyModal">
     <div class="modal">
       <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
       <h3 class="modal-title">LỊCH SỬ ĐÃ MUA</h3>
       
       <div class="history-top-actions">
-        <span class="history-count" id="historyCount">0 giao dịch</span>
+        <span class="history-count" id="historyCount">0 đơn hàng đã mua</span>
         <button class="btn-clear-history" onclick="clearAllHistory()">🗑️ Xóa Lịch Sử</button>
       </div>
 
@@ -669,6 +719,12 @@
     const BANK_NAME = "BIDV";
     const BANK_ACC = "96247WGNJZ";
     const DEFAULT_IMG = "./bg.jpg";
+
+    // Icon SVG sắc nét
+    const ICON_COPY = `<svg viewBox="0 0 24 24"><path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z"/></svg>`;
+    const ICON_CHECK = `<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>`;
+    const ICON_EYE = `<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z"/></svg>`;
+    const ICON_EYE_OFF = `<svg viewBox="0 0 24 24"><path d="M12 7C14.76 7 17 9.24 17 12C17 12.65 16.87 13.26 16.65 13.82L19.57 16.74C21.07 15.49 22.27 13.86 23 12C21.27 7.61 17 4.5 12 4.5C10.6 4.5 9.27 4.75 8.07 5.24L10.18 7.35C10.74 7.13 11.35 7 12 7ZM2 4.27L4.28 6.55L4.74 7.01C3.08 8.3 1.78 10 1 12C2.73 16.39 7 19.5 12 19.5C13.55 19.5 15.03 19.2 16.38 18.66L16.8 19.08L19.73 22L21 20.73L3.27 3L2 4.27ZM7.53 9.8L9.08 11.35C9.03 11.56 9 11.78 9 12C9 13.66 10.34 15 12 15C12.22 15 12.44 14.97 12.65 14.92L14.2 16.47C13.53 16.8 12.79 17 12 17C9.24 17 7 14.76 7 12C7 11.21 7.2 10.47 7.53 9.8Z"/></svg>`;
 
     let pollInterval = null;
     let currentAccData = "";
@@ -802,7 +858,7 @@
       localStorage.setItem('wuwa_orders_history', JSON.stringify(history));
     }
 
-    /* XỬ LÝ GIAO DIỆN LỊCH SỬ NÂNG CẤP */
+    /* XỬ LÝ GIAO DIỆN LỊCH SỬ NÂNG CẤP VỚI ICON */
     function openHistoryModal() {
       const history = JSON.parse(localStorage.getItem('wuwa_orders_history') || '[]');
       const container = document.getElementById('historyContainer');
@@ -811,10 +867,9 @@
       countEl.innerText = `${history.length} đơn hàng đã mua`;
 
       if (history.length === 0) {
-        container.innerHTML = '<p style="text-align: center; color: var(--gray-sub); padding: 35px 0; font-size: 13px;">Bạn chưa có giao dịch nào trên thiết bị này.</p>';
+        container.innerHTML = '<p style="text-align: center; color: var(--gray-sub); padding: 35px 0; font-size: 13.5px;">Bạn chưa có giao dịch nào trên thiết bị này.</p>';
       } else {
         container.innerHTML = history.map((item, index) => {
-          // Phân tách tài khoản và mật khẩu nếu dùng định dạng user|pass
           let user = item.accountInfo;
           let pass = "";
           if (item.accountInfo && item.accountInfo.includes('|')) {
@@ -839,21 +894,29 @@
                 <div class="cred-row">
                   <span class="cred-label">TK:</span>
                   <span class="cred-val" title="${user}">${user}</span>
-                  <button class="btn-copy-chip" onclick="copyAccount('${user}', this)">Copy TK</button>
+                  <button class="btn-copy-chip" onclick="copyAccount('${user}', this)">
+                    ${ICON_COPY} <span>Copy TK</span>
+                  </button>
                 </div>
                 ${pass ? `
                   <div class="cred-row">
                     <span class="cred-label">MK:</span>
                     <span class="cred-val" id="pass-${index}" title="${pass}">••••••••</span>
-                    <div style="display: flex; gap: 4px;">
-                      <button class="btn-copy-chip" style="background: rgba(255,255,255,0.04);" onclick="togglePass('pass-${index}', '${pass}', this)">Hiện</button>
-                      <button class="btn-copy-chip" onclick="copyAccount('${pass}', this)">Copy MK</button>
+                    <div style="display: flex; gap: 6px;">
+                      <button class="btn-copy-chip" style="background: rgba(255,255,255,0.04);" onclick="togglePass('pass-${index}', '${pass}', this)">
+                        ${ICON_EYE} <span>Hiện</span>
+                      </button>
+                      <button class="btn-copy-chip" onclick="copyAccount('${pass}', this)">
+                        ${ICON_COPY} <span>Copy MK</span>
+                      </button>
                     </div>
                   </div>
                 ` : ''}
               </div>
 
-              <button class="btn-copy-full" onclick="copyAccount('${item.accountInfo}', this)">Sao Chép Toàn Bộ In4</button>
+              <button class="btn-copy-full" onclick="copyAccount('${item.accountInfo}', this)">
+                ${ICON_COPY} <span>Sao Chép Toàn Bộ In4</span>
+              </button>
             </div>
           `;
         }).join('');
@@ -866,10 +929,10 @@
       const el = document.getElementById(elementId);
       if (el.innerText === '••••••••') {
         el.innerText = actualPass;
-        btn.innerText = 'Ẩn';
+        btn.innerHTML = `${ICON_EYE_OFF} <span>Ẩn</span>`;
       } else {
         el.innerText = '••••••••';
-        btn.innerText = 'Hiện';
+        btn.innerHTML = `${ICON_EYE} <span>Hiện</span>`;
       }
     }
 
@@ -895,11 +958,11 @@
     function copyAccount(text, btnElement) {
       if (!text) return;
       navigator.clipboard.writeText(text).then(() => {
-        const origin = btnElement.innerText;
-        btnElement.innerText = "✓ Xong";
+        const originalHtml = btnElement.innerHTML;
+        btnElement.innerHTML = `${ICON_CHECK} <span>Đã Copy!</span>`;
         btnElement.classList.add('copied');
         setTimeout(() => {
-          btnElement.innerText = origin;
+          btnElement.innerHTML = originalHtml;
           btnElement.classList.remove('copied');
         }, 1800);
       });
