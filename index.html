@@ -6,29 +6,35 @@
   <title>GÓC BÁN ACC CỦA CHISA 💗 | WUWA STORE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Bổ sung font Be Vietnam Pro chuẩn tiếng Việt cực nét -->
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #050608;
-      --card-bg: rgba(13, 14, 20, 0.88);
+      --bg-dark: #07080b;
+      --card-bg: rgba(15, 17, 24, 0.94); /* Nền đặc hơn, đọc chữ siêu rõ */
       --red-main: #ff1e42;
-      --red-glow: rgba(255, 30, 66, 0.45);
-      --red-soft: rgba(255, 30, 66, 0.12);
+      --red-glow: rgba(255, 30, 66, 0.5);
+      --red-soft: rgba(255, 30, 66, 0.16);
       --white-pure: #ffffff;
-      --white-dim: #cbd5e1;
+      --white-dim: #e2e8f0;
       --gray-sub: #94a3b8;
-      --border-line: rgba(255, 255, 255, 0.1);
-      --border-red: rgba(255, 30, 66, 0.5);
+      --border-line: rgba(255, 255, 255, 0.12);
+      --border-red: rgba(255, 30, 66, 0.6);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Be Vietnam Pro', sans-serif; /* Đổi font đọc văn bản sang font nét rõ */
+    }
 
-    /* Nền Wallpaper Danjin hiệu ứng lọc màu gaming */
+    /* Nền Wallpaper với lớp phủ tối tăng tương phản chữ */
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 50% 15%, rgba(255, 30, 66, 0.22) 0%, transparent 65%),
-        linear-gradient(to bottom, rgba(5, 6, 8, 0.72) 0%, rgba(5, 6, 8, 0.95) 100%),
+        radial-gradient(circle at 50% 15%, rgba(255, 30, 66, 0.2) 0%, transparent 65%),
+        linear-gradient(to bottom, rgba(5, 6, 8, 0.82) 0%, rgba(5, 6, 8, 0.96) 100%),
         url('./bg.jpg');
       background-size: cover;
       background-position: center top;
@@ -48,39 +54,41 @@
       border-bottom: 1px solid var(--border-line);
       padding-bottom: 16px;
       margin-bottom: 36px;
-      backdrop-filter: blur(12px);
+      background: rgba(7, 8, 12, 0.6);
+      padding: 12px 20px;
+      border-radius: 8px;
+      backdrop-filter: blur(14px);
     }
     .brand-logo {
       font-family: 'Orbitron', sans-serif;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       color: var(--white-pure);
-      text-shadow: 0 0 25px rgba(255, 30, 66, 0.8);
+      text-shadow: 0 0 20px rgba(255, 30, 66, 0.8);
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
     .brand-logo span { color: var(--red-main); }
-    .brand-logo .heart { font-size: 20px; filter: drop-shadow(0 0 10px var(--red-main)); }
+    .brand-logo .heart { font-size: 19px; filter: drop-shadow(0 0 8px var(--red-main)); }
     
     .btn-nav {
-      background: rgba(255, 30, 66, 0.08);
+      background: rgba(255, 30, 66, 0.12);
       border: 1px solid var(--border-red);
       color: var(--white-pure);
-      padding: 10px 22px;
-      font-size: 14px;
+      padding: 10px 20px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       cursor: pointer;
-      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-      transition: all 0.3s ease;
+      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+      transition: all 0.25s ease;
     }
     .btn-nav:hover {
       background: var(--red-main);
-      box-shadow: 0 0 25px var(--red-glow);
-      transform: translateY(-2px);
+      box-shadow: 0 0 20px var(--red-glow);
     }
 
     /* Hero Banner */
@@ -91,15 +99,15 @@
       gap: 10px;
       font-size: 12px;
       font-weight: 800;
-      color: var(--red-main);
-      background: rgba(0, 0, 0, 0.75);
+      color: #ff3355;
+      background: rgba(0, 0, 0, 0.85);
       border: 1px solid var(--border-red);
-      padding: 6px 20px;
+      padding: 6px 18px;
       margin-bottom: 16px;
       text-transform: uppercase;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 15px rgba(255, 30, 66, 0.2);
+      box-shadow: 0 0 16px rgba(255, 30, 66, 0.25);
     }
     .pulse-dot {
       width: 8px; height: 8px;
@@ -115,17 +123,23 @@
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(28px, 4.5vw, 46px);
       font-weight: 900;
       color: var(--white-pure);
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       margin-bottom: 10px;
-      text-shadow: 0 5px 30px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 30, 66, 0.5);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 30, 66, 0.5);
     }
-    header p { color: var(--gray-sub); font-size: 16px; font-weight: 600; letter-spacing: 1px; }
+    header p { 
+      color: #e2e8f0; 
+      font-size: 15px; 
+      font-weight: 600; 
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    }
 
-    /* Live Features HUD Bar */
+    /* Features Bar */
     .features-bar {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -133,7 +147,7 @@
       margin-bottom: 24px;
     }
     .feat-card {
-      background: rgba(10, 11, 16, 0.65);
+      background: rgba(14, 16, 23, 0.92);
       border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
       padding: 14px 18px;
@@ -141,6 +155,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
     }
     .feat-icon {
       font-size: 24px;
@@ -154,9 +169,9 @@
       color: var(--white-pure);
       letter-spacing: 1px;
     }
-    .feat-desc { font-size: 12px; color: var(--gray-sub); }
+    .feat-desc { font-size: 12px; color: #cbd5e1; margin-top: 2px; }
 
-    /* 3 Cột Điều Khoản & Miễn Trừ Trách Nhiệm */
+    /* 3 Cột Điều Khoản - Chữ cực kỳ rõ nét */
     .notice-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -164,18 +179,18 @@
       margin-bottom: 45px;
     }
     .notice-item {
-      background: var(--red-soft);
-      border: 1px solid rgba(255, 30, 66, 0.3);
-      padding: 16px 20px;
+      background: rgba(18, 14, 18, 0.94);
+      border: 1px solid rgba(255, 30, 66, 0.4);
+      padding: 18px 20px;
       backdrop-filter: blur(14px);
       position: relative;
-      overflow: hidden;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
     }
     .notice-item::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 3px; height: 100%;
+      top: 0; left: 0; width: 4px; height: 100%;
       background: var(--red-main);
       box-shadow: 0 0 10px var(--red-main);
     }
@@ -186,15 +201,21 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 12px;
       font-weight: 800;
-      color: var(--red-main);
-      margin-bottom: 6px;
+      color: #ff3b59;
+      margin-bottom: 8px;
       letter-spacing: 1px;
       text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(255, 30, 66, 0.4);
     }
     .notice-text {
-      font-size: 13px;
-      color: var(--white-dim);
-      line-height: 1.5;
+      font-size: 13.5px;
+      color: #f1f5f9; /* Màu chữ trắng sáng rõ */
+      line-height: 1.6;
+    }
+    .notice-text strong {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: underline dotted #ff1e42;
     }
 
     /* Product Grid */
@@ -217,12 +238,12 @@
       overflow: hidden;
       transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
       clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
     }
     .card:hover {
       transform: translateY(-8px);
       border-color: var(--red-main);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.9), 0 0 30px var(--red-glow);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.95), 0 0 30px var(--red-glow);
     }
 
     .thumb-wrapper {
@@ -230,7 +251,7 @@
       width: 100%;
       height: 220px;
       overflow: hidden;
-      background: #020203;
+      background: #000000;
     }
     .thumb-wrapper img {
       width: 100%;
@@ -243,33 +264,33 @@
     .card:hover .thumb-wrapper img {
       transform: scale(1.08);
       opacity: 1;
-      filter: brightness(1.1);
+      filter: brightness(1.08);
     }
     .thumb-wrapper::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(13, 14, 20, 1) 0%, rgba(13, 14, 20, 0.15) 50%, transparent 100%);
+      background: linear-gradient(to top, rgba(15, 17, 24, 1) 0%, rgba(15, 17, 24, 0.1) 55%, transparent 100%);
       pointer-events: none;
     }
     .thumb-tag {
       position: absolute;
       top: 12px;
       left: 12px;
-      background: rgba(0,0,0,0.85);
-      border: 1px solid rgba(34, 197, 94, 0.5);
-      color: #22c55e;
+      background: rgba(0, 0, 0, 0.88);
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      color: #4ade80;
       font-size: 11px;
       font-weight: 800;
       padding: 5px 12px;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       backdrop-filter: blur(8px);
       z-index: 2;
     }
 
     .card-body {
-      padding: 16px 22px 22px;
+      padding: 18px 22px 22px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -277,47 +298,49 @@
     }
 
     .card h3 {
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-size: 16px;
       font-weight: 700;
-      color: var(--white-pure);
-      line-height: 1.45;
+      color: #ffffff;
+      line-height: 1.5;
       min-height: 48px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
     }
 
     .price-box {
-      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
       padding-top: 14px;
       margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
-    .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+    .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
     .price-val {
       font-family: 'Orbitron', sans-serif;
       font-size: 24px;
       font-weight: 800;
-      color: var(--white-pure);
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
-    .price-val span { color: var(--red-main); font-size: 14px; }
+    .price-val span { color: var(--red-main); font-size: 14px; font-weight: 700; }
 
     .btn-buy {
       width: 100%;
       background: var(--red-main);
-      color: var(--white-pure);
+      color: #ffffff;
       border: none;
-      padding: 14px;
-      font-size: 15px;
+      padding: 13px;
+      font-size: 14px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      transition: all 0.3s;
-      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      transition: all 0.25s;
+      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
     }
     .btn-buy::before {
       content: '';
@@ -332,15 +355,16 @@
       box-shadow: 0 0 25px var(--red-glow);
     }
 
-    /* Khung Hết Hàng Thiết Kế Cyberpunk */
+    /* Khung Hết Hàng Cyberpunk */
     .empty-state {
       grid-column: 1/-1;
       text-align: center;
-      background: rgba(10, 11, 16, 0.7);
+      background: rgba(14, 16, 24, 0.9);
       border: 1px dashed rgba(255, 30, 66, 0.4);
-      padding: 65px 20px;
+      padding: 60px 20px;
       backdrop-filter: blur(15px);
       clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
     }
     .empty-icon {
       font-size: 45px;
@@ -352,16 +376,16 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 20px;
       font-weight: 800;
-      color: var(--white-pure);
+      color: #ffffff;
       margin-bottom: 8px;
       letter-spacing: 2px;
     }
     .empty-desc {
-      color: var(--gray-sub);
-      font-size: 15px;
-      max-width: 480px;
+      color: #cbd5e1;
+      font-size: 14.5px;
+      max-width: 500px;
       margin: 0 auto;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* Modals */
@@ -369,7 +393,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(3, 3, 5, 0.92);
+      background: rgba(3, 3, 5, 0.94);
       backdrop-filter: blur(14px);
       align-items: center;
       justify-content: center;
@@ -379,7 +403,7 @@
     .modal-overlay.active { display: flex; }
 
     .modal {
-      background: rgba(14, 15, 22, 0.98);
+      background: rgba(15, 17, 24, 0.98);
       border: 1px solid var(--border-red);
       box-shadow: 0 0 50px rgba(255, 30, 66, 0.35);
       width: 100%;
@@ -425,7 +449,7 @@
     .qr-img { width: 190px; height: 190px; display: block; }
 
     .pay-spec {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
       padding: 14px 16px;
@@ -435,15 +459,15 @@
     }
     .spec-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
     .spec-row:last-child { margin-bottom: 0; }
-    .spec-label { color: var(--gray-sub); text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
-    .spec-val { color: var(--white-pure); font-weight: 700; font-family: monospace; font-size: 14px; }
-    .spec-val.red { color: var(--red-main); }
+    .spec-label { color: #94a3b8; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+    .spec-val { color: #ffffff; font-weight: 700; font-family: monospace; font-size: 14px; }
+    .spec-val.red { color: #ff3355; }
 
     .gaming-spinner {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: var(--white-pure);
+      color: #ffffff;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
@@ -476,9 +500,9 @@
     .btn-copy-game {
       background: transparent;
       border: 1px solid var(--red-main);
-      color: var(--white-pure);
+      color: #ffffff;
       padding: 12px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -500,7 +524,7 @@
       gap: 12px;
     }
     .history-card {
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(10, 11, 16, 0.9);
       border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
       padding: 12px 14px;
@@ -509,7 +533,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 11px;
-      color: var(--gray-sub);
+      color: #94a3b8;
       font-family: monospace;
       margin-bottom: 6px;
     }
@@ -556,7 +580,7 @@
       </div>
     </div>
 
-    <!-- 3 CỘT ĐIỀU KHOẢN CÂN ĐỐI -->
+    <!-- 3 CỘT ĐIỀU KHOẢN CÂN ĐỐI - ĐỌC RÕ NÉT -->
     <div class="notice-grid">
       <div class="notice-item">
         <div class="notice-header">⚠️ 01. TỰ ĐỘNG XOÁ ACC</div>
@@ -587,7 +611,7 @@
       
       <div id="step-qr">
         <h3 class="modal-title" id="modalProdTitle">XÁC NHẬN ĐƠN HÀNG</h3>
-        <p style="font-size: 12px; color: var(--gray-sub);">Quét mã VietQR bằng app ngân hàng bất kỳ</p>
+        <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">Quét mã VietQR bằng app ngân hàng bất kỳ</p>
         
         <div class="qr-frame">
           <img id="qrImage" class="qr-img" src="" alt="Mã VietQR">
@@ -619,7 +643,7 @@
 
       <div id="step-success" style="display: none;">
         <h3 class="modal-title" style="color: #22c55e;">GIAO TÀI KHOẢN THÀNH CÔNG</h3>
-        <p style="font-size: 12px; color: var(--gray-sub);">Đã xác nhận thanh toán thành công</p>
+        <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">Đã xác nhận thanh toán thành công</p>
 
         <div class="acc-box">
           <div class="acc-text" id="accDisplay"></div>
@@ -627,11 +651,11 @@
 
         <button class="btn-copy-game" id="btnCopy" onclick="copyAccount(currentAccData, this)">Sao Chép Thông Tin Acc</button>
         
-        <div style="margin-top: 14px; background: rgba(0, 0, 0, 0.75); border: 1px solid rgba(255, 30, 66, 0.35); padding: 10px 12px; text-align: left; font-size: 12px; line-height: 1.5;">
-          <p style="color: var(--red-main); font-weight: 700; margin-bottom: 4px;">⚠️ LƯU Ý BẢO MẬT & MIỄN TRỪ TRÁCH NHIỆM:</p>
-          <p style="color: var(--white-dim);">1. Hệ thống sẽ tự động xoá acc sau khi bạn mua.</p>
-          <p style="color: var(--white-dim);">2. Bạn phải tự copy hết toàn bộ thông tin (in4) và lưu lại an toàn.</p>
-          <p style="color: var(--gray-sub); font-size: 11px; margin-top: 4px;">* Shop miễn trừ trách nhiệm nếu bạn làm mất hoặc quên lưu thông tin!</p>
+        <div style="margin-top: 14px; background: rgba(0, 0, 0, 0.85); border: 1px solid rgba(255, 30, 66, 0.4); padding: 12px 14px; text-align: left; font-size: 12.5px; line-height: 1.6;">
+          <p style="color: #ff3355; font-weight: 700; margin-bottom: 4px;">⚠️ LƯU Ý BẢO MẬT & MIỄN TRỪ TRÁCH NHIỆM:</p>
+          <p style="color: #f1f5f9;">1. Hệ thống sẽ tự động xoá acc sau khi bạn mua.</p>
+          <p style="color: #f1f5f9;">2. Bạn phải tự copy hết toàn bộ thông tin (in4) và lưu lại an toàn.</p>
+          <p style="color: #94a3b8; font-size: 11.5px; margin-top: 4px;">* Shop miễn trừ trách nhiệm nếu bạn làm mất hoặc quên lưu thông tin!</p>
         </div>
       </div>
     </div>
@@ -642,7 +666,7 @@
     <div class="modal" style="max-width: 500px;">
       <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
       <h3 class="modal-title">LỊCH SỬ ĐÃ MUA</h3>
-      <p style="font-size: 12px; color: var(--gray-sub);">Các đơn hàng thành công trên thiết bị này</p>
+      <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">Các đơn hàng thành công trên thiết bị này</p>
       <div class="history-list" id="historyContainer"></div>
     </div>
   </div>
