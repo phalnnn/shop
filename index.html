@@ -12,9 +12,9 @@
       --bg-dark: #07080b;
       --card-bg: rgba(15, 17, 24, 0.94);
       --red-main: #ff1e42;
-      --red-glow: rgba(255, 30, 66, 0.45);
+      --red-glow: rgba(255, 30, 66, 0.6);
       --white-pure: #ffffff;
-      --white-dim: #e2e8f0;
+      --white-dim: #cbd5e1;
       --gray-sub: #94a3b8;
       --border-line: rgba(255, 255, 255, 0.1);
       --border-red: rgba(255, 30, 66, 0.5);
@@ -38,7 +38,7 @@
 
     .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
 
-    /* Top Navigation Bar - Gọn gàng trên 1 hàng ngang */
+    /* Top Navigation Bar */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -122,13 +122,9 @@
       margin-bottom: 6px;
       text-shadow: 0 0 25px rgba(255, 30, 66, 0.4);
     }
-    header p { 
-      color: #cbd5e1; 
-      font-size: 13px; 
-      font-weight: 500;
-    }
+    header p { color: #cbd5e1; font-size: 13px; font-weight: 500; }
 
-    /* Thanh Điều khoản & Quy tắc Gọn nhẹ (Không làm nghẽn màn hình) */
+    /* Hộp Điều khoản gọn */
     .quick-notice {
       background: rgba(18, 14, 20, 0.85);
       border: 1px solid rgba(255, 30, 66, 0.35);
@@ -151,14 +147,9 @@
       align-items: center;
       gap: 6px;
     }
-    .quick-notice-body {
-      color: #cbd5e1;
-    }
-    .quick-notice-body strong {
-      color: #ffffff;
-    }
+    .quick-notice-body { color: #cbd5e1; }
+    .quick-notice-body strong { color: #ffffff; }
 
-    /* Section Bar */
     .section-title {
       font-family: 'Orbitron', sans-serif;
       font-size: 14px;
@@ -187,6 +178,7 @@
       gap: 18px;
     }
 
+    /* ================= HIỆU ỨNG THẺ ACC ================= */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-line);
@@ -197,6 +189,27 @@
       justify-content: space-between;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--red-main);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85), 0 0 20px var(--red-glow);
+    }
+
+    /* HIỆU ỨNG BỪNG SÁNG KHI ĐƯỢC CHỌN (ACTIVE HIGHLIGHT) */
+    .card.selected-active {
+      border: 2px solid var(--red-main) !important;
+      box-shadow: 0 0 35px var(--red-glow), inset 0 0 15px rgba(255, 30, 66, 0.3) !important;
+      transform: scale(1.02) !important;
+      animation: selectPulse 0.8s infinite alternate ease-in-out;
+      z-index: 10;
+    }
+    @keyframes selectPulse {
+      0% { box-shadow: 0 0 20px var(--red-glow); }
+      100% { box-shadow: 0 0 40px rgba(255, 30, 66, 0.9); }
     }
 
     .thumb-wrapper {
@@ -204,12 +217,17 @@
       width: 100%;
       height: 180px;
       background: #000000;
+      overflow: hidden;
     }
     .thumb-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .thumb-wrapper img, .card.selected-active .thumb-wrapper img {
+      transform: scale(1.06);
     }
     .thumb-wrapper::after {
       content: '';
@@ -265,6 +283,7 @@
     }
     .price-val span { color: var(--red-main); font-size: 13px; font-weight: 700; }
 
+    /* ================= HIỆU ỨNG NÚT MUA ================= */
     .btn-buy {
       width: 100%;
       background: var(--red-main);
@@ -277,14 +296,35 @@
       letter-spacing: 1px;
       border-radius: 4px;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
       box-shadow: 0 0 15px rgba(255, 30, 66, 0.35);
+      transition: all 0.2s ease;
+    }
+    /* Tia sáng quét ngang */
+    .btn-buy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: 0.5s ease;
+    }
+    .btn-buy:hover::before {
+      left: 150%;
+    }
+    .btn-buy:hover {
+      background: #ff3355;
+      box-shadow: 0 0 25px var(--red-glow);
     }
     .btn-buy:active {
-      background: #ff3355;
-      transform: scale(0.98);
+      transform: scale(0.95);
+      background: #e60026;
     }
 
-    /* Khung Hết Hàng Rất Gọn */
+    /* Khung Hết Hàng */
     .empty-state {
       grid-column: 1/-1;
       text-align: center;
@@ -301,13 +341,9 @@
       color: #ffffff;
       margin-bottom: 6px;
     }
-    .empty-desc {
-      color: #cbd5e1;
-      font-size: 13px;
-      line-height: 1.5;
-    }
+    .empty-desc { color: #cbd5e1; font-size: 13px; line-height: 1.5; }
 
-    /* Modals - Tối ưu toàn màn hình trên điện thoại */
+    /* Modals */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -450,13 +486,11 @@
 <body>
 
   <div class="container">
-    <!-- TOP BAR GỌN GÀNG -->
     <div class="top-bar">
       <div class="brand-logo">CHISA<span>CHANN.</span> <span class="heart">💗</span></div>
       <button class="btn-nav" onclick="openHistoryModal()">📋 Lịch Sử</button>
     </div>
 
-    <!-- TIÊU ĐỀ KHÔNG BỊ RỚT DÒNG -->
     <header>
       <div class="status-tag">
         <div class="pulse-dot"></div> Bán Tự Động 24/7
@@ -465,7 +499,6 @@
       <p>Quét mã VietQR nhận acc ngay sau 3 giây</p>
     </header>
 
-    <!-- HỘP LƯU Ý BẢO MẬT & ĐIỀU KHOẢN GỌN NHẸ -->
     <div class="quick-notice">
       <div class="quick-notice-title">⚠️ ĐIỀU KHOẢN & LƯU Ý BẢO MẬT:</div>
       <div class="quick-notice-body">
@@ -475,7 +508,6 @@
 
     <div class="section-title">DANH SÁCH TÀI KHOẢN SẴN HÀNG</div>
 
-    <!-- DANH SÁCH SẢN PHẨM HIỂN THỊ NGAY -->
     <div class="grid" id="productGrid">
       <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 50px 0; font-size: 14px;">
         Đang đồng bộ dữ liệu tài khoản...
@@ -582,7 +614,7 @@
           }
 
           return `
-            <div class="card">
+            <div class="card" id="card-${item.id}">
               <div class="thumb-wrapper">
                 <span class="thumb-tag">● Sẵn hàng</span>
                 <img src="${imgSrc}" alt="${item.game_name}" onerror="this.src='${DEFAULT_IMG}'">
@@ -594,7 +626,7 @@
                     <span class="price-label">Giá bán</span>
                     <div class="price-val">${Number(item.price).toLocaleString()} <span>VNĐ</span></div>
                   </div>
-                  <button class="btn-buy" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price})">MUA NGAY</button>
+                  <button class="btn-buy" id="btn-buy-${item.id}" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price})">MUA NGAY</button>
                 </div>
               </div>
             </div>
@@ -606,6 +638,15 @@
     }
 
     async function createOrderInstant(accId, name, price) {
+      // 1. KÍCH HOẠT HIỆU ỨNG LÀM NỔI BẬT THẺ ĐƯỢC CHỌN
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('selected-active'));
+      const activeCard = document.getElementById(`card-${accId}`);
+      const activeBtn = document.getElementById(`btn-buy-${accId}`);
+      
+      if (activeCard) activeCard.classList.add('selected-active');
+      if (activeBtn) activeBtn.innerText = "ĐANG KHỞI TẠO...";
+
+      // 2. MỞ POPUP THANH TOÁN
       document.getElementById('modalProdTitle').innerText = name;
       document.getElementById('step-qr').style.display = 'block';
       document.getElementById('step-success').style.display = 'none';
@@ -710,6 +751,8 @@
 
     function closePayment() {
       document.getElementById('paymentModal').classList.remove('active');
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('selected-active'));
+      document.querySelectorAll('.btn-buy').forEach(b => b.innerText = "MUA NGAY");
       if (pollInterval) clearInterval(pollInterval);
       loadAccounts();
     }
