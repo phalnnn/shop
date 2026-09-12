@@ -3,160 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GỐC BÁN ACC CỦA CHISA 💗</title>
+  <title>GÓC BÁN ACC CỦA CHISA 💗 | WUWA STORE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #050608;
-      --card-bg: rgba(12, 13, 18, 0.85);
+      --card-bg: rgba(13, 14, 20, 0.88);
       --red-main: #ff1e42;
-      --red-glow: rgba(255, 30, 66, 0.5);
+      --red-glow: rgba(255, 30, 66, 0.45);
+      --red-soft: rgba(255, 30, 66, 0.12);
       --white-pure: #ffffff;
       --white-dim: #cbd5e1;
       --gray-sub: #94a3b8;
-      --border-line: rgba(255, 255, 255, 0.08);
-      --border-red: rgba(255, 30, 66, 0.45);
+      --border-line: rgba(255, 255, 255, 0.1);
+      --border-red: rgba(255, 30, 66, 0.5);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; }
 
-    /* Nền Wallpaper */
+    /* Nền Wallpaper Danjin hiệu ứng lọc màu gaming */
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 50% 10%, rgba(255, 30, 66, 0.18) 0%, transparent 60%),
-        linear-gradient(to bottom, rgba(5, 6, 8, 0.75) 0%, rgba(5, 6, 8, 0.94) 100%),
+        radial-gradient(circle at 50% 15%, rgba(255, 30, 66, 0.22) 0%, transparent 65%),
+        linear-gradient(to bottom, rgba(5, 6, 8, 0.72) 0%, rgba(5, 6, 8, 0.95) 100%),
         url('./bg.jpg');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
       min-height: 100vh;
       color: var(--white-pure);
-      padding: 30px 18px 90px;
+      padding: 24px 18px 80px;
     }
 
     .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
 
-    /* Top Bar */
+    /* Navigation Bar */
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--border-line);
-      padding-bottom: 18px;
-      margin-bottom: 40px;
-      backdrop-filter: blur(10px);
+      padding-bottom: 16px;
+      margin-bottom: 36px;
+      backdrop-filter: blur(12px);
     }
     .brand-logo {
       font-family: 'Orbitron', sans-serif;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 900;
-      letter-spacing: 2.5px;
+      letter-spacing: 3px;
       color: var(--white-pure);
-      text-shadow: 0 0 20px rgba(255, 30, 66, 0.7);
+      text-shadow: 0 0 25px rgba(255, 30, 66, 0.8);
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
     .brand-logo span { color: var(--red-main); }
+    .brand-logo .heart { font-size: 20px; filter: drop-shadow(0 0 10px var(--red-main)); }
     
     .btn-nav {
       background: rgba(255, 30, 66, 0.08);
       border: 1px solid var(--border-red);
       color: var(--white-pure);
-      padding: 10px 20px;
+      padding: 10px 22px;
       font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       cursor: pointer;
       clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
     }
     .btn-nav:hover {
       background: var(--red-main);
-      box-shadow: 0 0 22px var(--red-glow);
+      box-shadow: 0 0 25px var(--red-glow);
+      transform: translateY(-2px);
     }
 
-    /* Header */
-    header { text-align: center; margin-bottom: 35px; }
+    /* Hero Banner */
+    header { text-align: center; margin-bottom: 30px; }
     .status-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--red-main);
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.75);
       border: 1px solid var(--border-red);
-      padding: 6px 18px;
+      padding: 6px 20px;
       margin-bottom: 16px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      backdrop-filter: blur(8px);
+      letter-spacing: 2.5px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(255, 30, 66, 0.2);
     }
     .pulse-dot {
       width: 8px; height: 8px;
       background: var(--red-main);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--red-main);
-      animation: pulse 1.6s infinite;
+      box-shadow: 0 0 12px var(--red-main);
+      animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.5; }
+      50% { transform: scale(1.4); opacity: 0.4; }
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(30px, 4.8vw, 48px);
+      font-size: clamp(32px, 5vw, 52px);
       font-weight: 900;
       color: var(--white-pure);
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 30, 66, 0.4);
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      text-shadow: 0 5px 30px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 30, 66, 0.5);
     }
-    header p { color: var(--gray-sub); font-size: 16px; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+    header p { color: var(--gray-sub); font-size: 16px; font-weight: 600; letter-spacing: 1px; }
 
-    /* Notice & Disclaimer Box */
-    .notice-box {
-      background: rgba(255, 30, 66, 0.07);
-      border: 1px dashed var(--red-main);
-      border-left: 4px solid var(--red-main);
-      padding: 16px 20px;
-      margin-bottom: 40px;
-      border-radius: 4px;
-      backdrop-filter: blur(8px);
+    /* Live Features HUD Bar */
+    .features-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
     }
-    .notice-title {
+    .feat-card {
+      background: rgba(10, 11, 16, 0.65);
+      border: 1px solid var(--border-line);
+      border-left: 3px solid var(--red-main);
+      padding: 14px 18px;
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .feat-icon {
+      font-size: 24px;
+      color: var(--red-main);
+      filter: drop-shadow(0 0 8px var(--red-glow));
+    }
+    .feat-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--white-pure);
+      letter-spacing: 1px;
+    }
+    .feat-desc { font-size: 12px; color: var(--gray-sub); }
+
+    /* 3 Cột Điều Khoản & Miễn Trừ Trách Nhiệm */
+    .notice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 45px;
+    }
+    .notice-item {
+      background: var(--red-soft);
+      border: 1px solid rgba(255, 30, 66, 0.3);
+      padding: 16px 20px;
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+    }
+    .notice-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 3px; height: 100%;
+      background: var(--red-main);
+      box-shadow: 0 0 10px var(--red-main);
+    }
+    .notice-header {
       display: flex;
       align-items: center;
       gap: 8px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
       font-weight: 800;
       color: var(--red-main);
-      text-transform: uppercase;
-      font-size: 13px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
-    .notice-list {
-      list-style: none;
+    .notice-text {
       font-size: 13px;
       color: var(--white-dim);
-      line-height: 1.7;
+      line-height: 1.5;
     }
 
     /* Product Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
     }
 
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-line);
       border-top: 3px solid var(--red-main);
       display: flex;
@@ -165,19 +216,19 @@
       position: relative;
       overflow: hidden;
       transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+      clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8);
     }
     .card:hover {
       transform: translateY(-8px);
       border-color: var(--red-main);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85), 0 0 28px var(--red-glow);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.9), 0 0 30px var(--red-glow);
     }
 
     .thumb-wrapper {
       position: relative;
       width: 100%;
-      height: 210px;
+      height: 220px;
       overflow: hidden;
       background: #020203;
     }
@@ -187,18 +238,18 @@
       object-fit: cover;
       object-position: center;
       transition: transform 0.5s ease, filter 0.3s ease;
-      opacity: 0.94;
+      opacity: 0.95;
     }
     .card:hover .thumb-wrapper img {
       transform: scale(1.08);
       opacity: 1;
-      filter: brightness(1.08);
+      filter: brightness(1.1);
     }
     .thumb-wrapper::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(12, 13, 18, 1) 0%, rgba(12, 13, 18, 0.2) 45%, transparent 100%);
+      background: linear-gradient(to top, rgba(13, 14, 20, 1) 0%, rgba(13, 14, 20, 0.15) 50%, transparent 100%);
       pointer-events: none;
     }
     .thumb-tag {
@@ -206,14 +257,14 @@
       top: 12px;
       left: 12px;
       background: rgba(0,0,0,0.85);
-      border: 1px solid rgba(34, 197, 94, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.5);
       color: #22c55e;
       font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      letter-spacing: 1.2px;
+      font-weight: 800;
+      padding: 5px 12px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
       z-index: 2;
     }
 
@@ -231,22 +282,22 @@
       font-weight: 700;
       color: var(--white-pure);
       line-height: 1.45;
-      min-height: 46px;
+      min-height: 48px;
       margin-bottom: 18px;
     }
 
     .price-box {
-      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
       padding-top: 14px;
       margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
-    .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+    .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
     .price-val {
       font-family: 'Orbitron', sans-serif;
-      font-size: 23px;
+      font-size: 24px;
       font-weight: 800;
       color: var(--white-pure);
     }
@@ -257,28 +308,60 @@
       background: var(--red-main);
       color: var(--white-pure);
       border: none;
-      padding: 13px;
+      padding: 14px;
       font-size: 15px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      transition: all 0.25s;
-      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+      transition: all 0.3s;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
     }
     .btn-buy::before {
       content: '';
       position: absolute;
       top: 0; left: -100%; width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
       transition: 0.5s;
     }
     .btn-buy:hover::before { left: 150%; }
     .btn-buy:hover {
-      background: #ff3b59;
-      box-shadow: 0 0 20px var(--red-glow);
+      background: #ff3355;
+      box-shadow: 0 0 25px var(--red-glow);
+    }
+
+    /* Khung Hết Hàng Thiết Kế Cyberpunk */
+    .empty-state {
+      grid-column: 1/-1;
+      text-align: center;
+      background: rgba(10, 11, 16, 0.7);
+      border: 1px dashed rgba(255, 30, 66, 0.4);
+      padding: 65px 20px;
+      backdrop-filter: blur(15px);
+      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    }
+    .empty-icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+      display: inline-block;
+      filter: drop-shadow(0 0 15px var(--red-glow));
+    }
+    .empty-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white-pure);
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+    .empty-desc {
+      color: var(--gray-sub);
+      font-size: 15px;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.5;
     }
 
     /* Modals */
@@ -287,7 +370,7 @@
       position: fixed;
       inset: 0;
       background: rgba(3, 3, 5, 0.92);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -296,9 +379,9 @@
     .modal-overlay.active { display: flex; }
 
     .modal {
-      background: rgba(14, 15, 20, 0.96);
+      background: rgba(14, 15, 22, 0.98);
       border: 1px solid var(--border-red);
-      box-shadow: 0 0 45px rgba(255, 30, 66, 0.3);
+      box-shadow: 0 0 50px rgba(255, 30, 66, 0.35);
       width: 100%;
       max-width: 460px;
       padding: 28px 24px;
@@ -335,17 +418,17 @@
       background: #ffffff;
       padding: 8px;
       display: inline-block;
-      margin: 16px 0 16px;
+      margin: 16px 0;
       border: 2px solid var(--white-pure);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
     }
     .qr-img { width: 190px; height: 190px; display: block; }
 
     .pay-spec {
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.8);
       border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
-      padding: 13px 16px;
+      padding: 14px 16px;
       margin-bottom: 16px;
       text-align: left;
       font-size: 13px;
@@ -417,7 +500,7 @@
       gap: 12px;
     }
     .history-card {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.65);
       border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
       padding: 12px 14px;
@@ -436,7 +519,7 @@
 
   <div class="container">
     <div class="top-bar">
-      <div class="brand-logo">CHISA<span>CHANN.</span></div>
+      <div class="brand-logo">CHISA<span>CHANN.</span> <span class="heart">💗</span></div>
       <button class="btn-nav" onclick="openHistoryModal()">[ Lịch Sử Mua Hàng ]</button>
     </div>
 
@@ -448,18 +531,48 @@
       <p>Hệ thống tự động phê duyệt và bàn giao mật khẩu trong vòng 3 giây</p>
     </header>
 
-    <!-- BANNER LƯU Ý & MIỄN TRỪ TRÁCH NHIỆM -->
-    <div class="notice-box">
-      <div class="notice-title">
-        ⚠️ ĐIỀU KHOẢN GIAO DỊCH & MIỄN TRỪ TRÁCH NHIỆM
+    <!-- THANH THỐNG SỐ UY TÍN (FEATURES HUD) -->
+    <div class="features-bar">
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <div>
+          <div class="feat-title">TỰ ĐỘNG BÀN GIAO</div>
+          <div class="feat-desc">Nhận acc ngay sau khi quét QR</div>
+        </div>
       </div>
-      <ul class="notice-list">
-        <li>• <strong>Hệ thống sẽ tự động xoá acc sau khi bạn mua</strong> để đảm bảo tính duy nhất và bảo mật.</li>
-        <li>• <strong>Bạn phải tự copy hết toàn bộ thông tin tài khoản (in4)</strong> và đổi mật khẩu bảo mật ngay lập tức.</li>
-        <li>• <strong>Shop miễn trừ toàn bộ trách nhiệm</strong> trong trường hợp người mua không chủ động lưu trữ lại thông tin tài khoản.</li>
-      </ul>
+      <div class="feat-card">
+        <div class="feat-icon">🛡️</div>
+        <div>
+          <div class="feat-title">BẢO MẬT TUYỆT ĐỐI</div>
+          <div class="feat-desc">Acc 1 chủ - Tự xóa trên hệ thống</div>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔥</div>
+        <div>
+          <div class="feat-title">GIÁ SIÊU TỐT</div>
+          <div class="feat-desc">Acc khởi đầu chuẩn SEA sạch 100%</div>
+        </div>
+      </div>
     </div>
 
+    <!-- 3 CỘT ĐIỀU KHOẢN CÂN ĐỐI -->
+    <div class="notice-grid">
+      <div class="notice-item">
+        <div class="notice-header">⚠️ 01. TỰ ĐỘNG XOÁ ACC</div>
+        <div class="notice-text">Hệ thống sẽ <strong>tự động xóa tài khoản</strong> khỏi cơ sở dữ liệu ngay sau khi bạn thanh toán để tránh trùng lặp.</div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-header">📋 02. SAO CHÉP IN4</div>
+        <div class="notice-text">Khách hàng vui lòng <strong>tự copy và lưu trữ toàn bộ thông tin</strong> và tiến hành đổi mật khẩu game ngay lập tức.</div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-header">🛡️ 03. MIỄN TRỪ TRÁCH NHIỆM</div>
+        <div class="notice-text">Shop <strong>miễn trừ trách nhiệm</strong> trong trường hợp bạn quên lưu thông tin hoặc làm mất mật khẩu sau khi mua.</div>
+      </div>
+    </div>
+
+    <!-- DANH SÁCH SẢN PHẨM -->
     <div class="grid" id="productGrid">
       <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 80px 0; font-size: 16px;">
         Đang đồng bộ dữ liệu tài khoản từ máy chủ...
@@ -514,8 +627,7 @@
 
         <button class="btn-copy-game" id="btnCopy" onclick="copyAccount(currentAccData, this)">Sao Chép Thông Tin Acc</button>
         
-        <!-- CẢNH BÁO BẮT BUỘC SAU KHI MUA -->
-        <div style="margin-top: 14px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 30, 66, 0.35); padding: 10px 12px; text-align: left; font-size: 12px; line-height: 1.5;">
+        <div style="margin-top: 14px; background: rgba(0, 0, 0, 0.75); border: 1px solid rgba(255, 30, 66, 0.35); padding: 10px 12px; text-align: left; font-size: 12px; line-height: 1.5;">
           <p style="color: var(--red-main); font-weight: 700; margin-bottom: 4px;">⚠️ LƯU Ý BẢO MẬT & MIỄN TRỪ TRÁCH NHIỆM:</p>
           <p style="color: var(--white-dim);">1. Hệ thống sẽ tự động xoá acc sau khi bạn mua.</p>
           <p style="color: var(--white-dim);">2. Bạn phải tự copy hết toàn bộ thông tin (in4) và lưu lại an toàn.</p>
@@ -552,12 +664,17 @@
         const grid = document.getElementById('productGrid');
 
         if (!data || data.length === 0) {
-          grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 70px 0;">Hiện tất cả tài khoản đã được bán hết. Vui lòng quay lại sau!</div>';
+          grid.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon">📦</div>
+              <div class="empty-title">KHO TẠM THỜI HẾT HÀNG</div>
+              <div class="empty-desc">Tất cả tài khoản trong đợt này đã được giao dịch thành công. Vui lòng quay lại vào đợt cập nhật tiếp theo nhé!</div>
+            </div>
+          `;
           return;
         }
 
         grid.innerHTML = data.map(item => {
-          // Xử lý thông minh đường dẫn ảnh (link mạng hoặc tên tệp nội bộ)
           let imgSrc = DEFAULT_IMG;
           if (item.image_url) {
             imgSrc = item.image_url.startsWith('http') ? item.image_url : './' + item.image_url;
