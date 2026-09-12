@@ -3,40 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WUWA STORE | SHOP ACC WUTHERING WAVES TỰ ĐỘNG</title>
+  <title>WUWA STORE | KHO TÀI KHOẢN TỰ ĐỘNG 24/7</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #070709;
-      --card-bg: rgba(13, 14, 18, 0.88);
+      --bg-dark: #050608;
+      --card-bg: rgba(12, 13, 18, 0.85);
       --red-main: #ff1e42;
-      --red-glow: rgba(255, 30, 66, 0.45);
+      --red-glow: rgba(255, 30, 66, 0.5);
       --white-pure: #ffffff;
       --gray-sub: #94a3b8;
-      --border-line: rgba(255, 255, 255, 0.12);
-      --border-red: rgba(255, 30, 66, 0.4);
+      --border-line: rgba(255, 255, 255, 0.08);
+      --border-red: rgba(255, 30, 66, 0.45);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; }
 
-    /* Background Danjin Wuthering Waves */
     body {
       background-color: var(--bg-dark);
       background-image: 
-        linear-gradient(to bottom, rgba(7, 7, 9, 0.75) 0%, rgba(7, 7, 9, 0.92) 100%),
-        radial-gradient(circle at 80% 20%, rgba(255, 30, 66, 0.25) 0%, transparent 50%),
-        url('https://images2.alphacoders.com/136/1361513.jpeg'); /* Link HD Danjin Splash Art */
+        radial-gradient(circle at 50% 10%, rgba(255, 30, 66, 0.18) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(5, 6, 8, 0.78) 0%, rgba(5, 6, 8, 0.94) 100%),
+        url('https://images2.alphacoders.com/136/1361513.jpeg');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
       min-height: 100vh;
       color: var(--white-pure);
-      padding: 30px 16px 80px;
+      padding: 30px 18px 90px;
     }
 
-    .container { max-width: 1140px; margin: 0 auto; position: relative; z-index: 2; }
+    .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
 
     /* Top Bar */
     .top-bar {
@@ -44,40 +43,40 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--border-line);
-      padding-bottom: 16px;
-      margin-bottom: 35px;
-      backdrop-filter: blur(8px);
+      padding-bottom: 18px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
     }
     .brand-logo {
       font-family: 'Orbitron', sans-serif;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       color: var(--white-pure);
-      text-shadow: 0 0 15px rgba(255, 30, 66, 0.6);
+      text-shadow: 0 0 20px rgba(255, 30, 66, 0.7);
     }
     .brand-logo span { color: var(--red-main); }
     
     .btn-nav {
-      background: rgba(255, 30, 66, 0.1);
+      background: rgba(255, 30, 66, 0.08);
       border: 1px solid var(--border-red);
       color: var(--white-pure);
-      padding: 8px 18px;
+      padding: 10px 20px;
       font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       cursor: pointer;
       clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
       transition: all 0.25s ease;
     }
     .btn-nav:hover {
       background: var(--red-main);
-      box-shadow: 0 0 18px var(--red-glow);
+      box-shadow: 0 0 22px var(--red-glow);
     }
 
     /* Header */
-    header { text-align: center; margin-bottom: 45px; }
+    header { text-align: center; margin-bottom: 50px; }
     .status-tag {
       display: inline-flex;
       align-items: center;
@@ -85,99 +84,111 @@
       font-size: 12px;
       font-weight: 700;
       color: var(--red-main);
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.65);
       border: 1px solid var(--border-red);
-      padding: 6px 16px;
+      padding: 6px 18px;
       margin-bottom: 16px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
     }
-    .status-tag::before {
-      content: '';
-      width: 7px; height: 7px;
+    .pulse-dot {
+      width: 8px; height: 8px;
       background: var(--red-main);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--red-main);
+      box-shadow: 0 0 10px var(--red-main);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.5; }
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(28px, 4.5vw, 46px);
+      font-size: clamp(30px, 4.8vw, 48px);
       font-weight: 900;
       color: var(--white-pure);
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 10px;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 30, 66, 0.35);
+      margin-bottom: 12px;
+      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 30, 66, 0.4);
     }
-    header p { color: var(--gray-sub); font-size: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+    header p { color: var(--gray-sub); font-size: 16px; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
 
     /* Product Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 28px;
     }
 
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border-line);
-      border-top: 2px solid var(--red-main);
-      padding: 0;
+      border-top: 3px solid var(--red-main);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-      clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
     }
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
       border-color: var(--red-main);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 22px var(--red-glow);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85), 0 0 28px var(--red-glow);
     }
 
-    /* Thumbnail Acc */
     .thumb-wrapper {
       position: relative;
       width: 100%;
-      height: 180px;
+      height: 210px;
       overflow: hidden;
-      background: #000;
+      background: #020203;
     }
     .thumb-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
-      opacity: 0.92;
+      object-position: center;
+      transition: transform 0.5s ease, filter 0.3s ease;
+      opacity: 0.94;
     }
     .card:hover .thumb-wrapper img {
-      transform: scale(1.06);
+      transform: scale(1.08);
       opacity: 1;
+      filter: brightness(1.08);
+    }
+    .thumb-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12, 13, 18, 1) 0%, rgba(12, 13, 18, 0.2) 45%, transparent 100%);
+      pointer-events: none;
     }
     .thumb-tag {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.8);
-      border: 1px solid var(--border-line);
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid rgba(34, 197, 94, 0.4);
       color: #22c55e;
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 8px;
-      letter-spacing: 1px;
+      padding: 4px 10px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
+      z-index: 2;
     }
 
     .card-body {
-      padding: 18px 20px 20px;
+      padding: 16px 22px 22px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -189,23 +200,23 @@
       font-size: 16px;
       font-weight: 700;
       color: var(--white-pure);
-      line-height: 1.4;
-      min-height: 44px;
-      margin-bottom: 16px;
+      line-height: 1.45;
+      min-height: 46px;
+      margin-bottom: 18px;
     }
 
     .price-box {
       border-top: 1px dashed rgba(255, 255, 255, 0.1);
       padding-top: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
-    .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 600; }
+    .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
     .price-val {
       font-family: 'Orbitron', sans-serif;
-      font-size: 22px;
+      font-size: 23px;
       font-weight: 800;
       color: var(--white-pure);
     }
@@ -216,27 +227,37 @@
       background: var(--red-main);
       color: var(--white-pure);
       border: none;
-      padding: 12px;
+      padding: 13px;
       font-size: 15px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       cursor: pointer;
-      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
       clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
     }
+    .btn-buy::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+    }
+    .btn-buy:hover::before { left: 150%; }
     .btn-buy:hover {
       background: #ff3b59;
-      box-shadow: 0 0 18px var(--red-glow);
+      box-shadow: 0 0 20px var(--red-glow);
     }
 
-    /* Modals */
+    /* Modal Checkout */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(3, 3, 5, 0.9);
-      backdrop-filter: blur(10px);
+      background: rgba(3, 3, 5, 0.92);
+      backdrop-filter: blur(12px);
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -245,16 +266,22 @@
     .modal-overlay.active { display: flex; }
 
     .modal {
-      background: rgba(18, 19, 24, 0.95);
+      background: rgba(14, 15, 20, 0.96);
       border: 1px solid var(--border-red);
-      box-shadow: 0 0 40px rgba(255, 30, 66, 0.25);
+      box-shadow: 0 0 45px rgba(255, 30, 66, 0.3);
       width: 100%;
-      max-width: 450px;
-      padding: 26px 22px;
+      max-width: 460px;
+      padding: 28px 24px;
       text-align: center;
       position: relative;
       clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+      animation: popIn 0.25s ease-out;
     }
+    @keyframes popIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
     .close-btn {
       position: absolute;
       top: 14px; right: 18px;
@@ -266,7 +293,7 @@
 
     .modal-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 800;
       margin-bottom: 6px;
       color: var(--white-pure);
@@ -278,22 +305,24 @@
       background: #ffffff;
       padding: 8px;
       display: inline-block;
-      margin: 14px 0 16px;
+      margin: 16px 0 16px;
       border: 2px solid var(--white-pure);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
     }
-    .qr-img { width: 185px; height: 185px; display: block; }
+    .qr-img { width: 190px; height: 190px; display: block; }
 
     .pay-spec {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.75);
       border: 1px solid var(--border-line);
-      padding: 12px;
-      margin-bottom: 14px;
+      border-left: 3px solid var(--red-main);
+      padding: 13px 16px;
+      margin-bottom: 16px;
       text-align: left;
       font-size: 13px;
     }
     .spec-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
     .spec-row:last-child { margin-bottom: 0; }
-    .spec-label { color: var(--gray-sub); text-transform: uppercase; font-size: 11px; font-weight: 700; }
+    .spec-label { color: var(--gray-sub); text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
     .spec-val { color: var(--white-pure); font-weight: 700; font-family: monospace; font-size: 14px; }
     .spec-val.red { color: var(--red-main); }
 
@@ -319,7 +348,7 @@
     .acc-box {
       background: #000000;
       border: 1px dashed var(--red-main);
-      padding: 14px;
+      padding: 15px;
       margin: 16px 0;
       text-align: left;
     }
@@ -344,10 +373,10 @@
       width: 100%;
       transition: all 0.2s;
     }
-    .btn-copy-game:hover { background: var(--red-main); box-shadow: 0 0 15px var(--red-glow); }
+    .btn-copy-game:hover { background: var(--red-main); box-shadow: 0 0 18px var(--red-glow); }
     .btn-copy-game.copied { background: #22c55e; border-color: #22c55e; }
 
-    /* History */
+    /* History List */
     .history-list {
       max-height: 380px;
       overflow-y: auto;
@@ -382,14 +411,16 @@
     </div>
 
     <header>
-      <div class="status-tag">Hệ Thống Phục Vụ Tự Động 24/7</div>
+      <div class="status-tag">
+        <div class="pulse-dot"></div> Hệ Thống Bán Tự Động 24/7
+      </div>
       <h1>KHO TÀI KHOẢN KHỞI ĐẦU</h1>
       <p>Hệ thống tự động phê duyệt và bàn giao mật khẩu trong vòng 3 giây</p>
     </header>
 
     <div class="grid" id="productGrid">
-      <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 70px 0;">
-        Đang tải danh sách tài khoản từ máy chủ...
+      <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 80px 0; font-size: 16px;">
+        Đang đồng bộ dữ liệu tài khoản từ máy chủ...
       </div>
     </div>
   </div>
@@ -461,7 +492,7 @@
     const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
     const BANK_NAME = "BIDV";
     const BANK_ACC = "96247WGNJZ";
-    const DEFAULT_IMG = "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80";
+    const DEFAULT_IMG = "https://images2.alphacoders.com/136/1361513.jpeg";
 
     let pollInterval = null;
     let currentAccData = "";
