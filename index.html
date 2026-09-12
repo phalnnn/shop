@@ -21,12 +21,13 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; }
 
+    /* Nền nhận trực tiếp tệp bg.jpg trong thư mục repo */
     body {
       background-color: var(--bg-dark);
       background-image: 
         radial-gradient(circle at 50% 10%, rgba(255, 30, 66, 0.18) 0%, transparent 60%),
-        linear-gradient(to bottom, rgba(5, 6, 8, 0.78) 0%, rgba(5, 6, 8, 0.94) 100%),
-        url('https://images2.alphacoders.com/136/1361513.jpeg');
+        linear-gradient(to bottom, rgba(5, 6, 8, 0.75) 0%, rgba(5, 6, 8, 0.94) 100%),
+        url('./bg.jpg');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
@@ -492,7 +493,7 @@
     const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
     const BANK_NAME = "BIDV";
     const BANK_ACC = "96247WGNJZ";
-    const DEFAULT_IMG = "https://images2.alphacoders.com/136/1361513.jpeg";
+    const DEFAULT_IMG = "./bg.jpg"; // Dùng chính tệp ảnh nền làm fallback
 
     let pollInterval = null;
     let currentAccData = "";
