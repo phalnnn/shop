@@ -9,34 +9,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #0a0a0c;
-      --panel-bg: #121318;
-      --card-bg: rgba(18, 19, 24, 0.9);
+      --bg-dark: #070709;
+      --card-bg: rgba(13, 14, 18, 0.88);
       --red-main: #ff1e42;
-      --red-glow: rgba(255, 30, 66, 0.4);
-      --red-dark: #8a0c20;
+      --red-glow: rgba(255, 30, 66, 0.45);
       --white-pure: #ffffff;
-      --white-dim: #e2e8f0;
-      --gray-sub: #71717a;
-      --border-line: rgba(255, 255, 255, 0.1);
+      --gray-sub: #94a3b8;
+      --border-line: rgba(255, 255, 255, 0.12);
       --border-red: rgba(255, 30, 66, 0.4);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; }
 
+    /* Background Danjin Wuthering Waves */
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 50% -20%, var(--red-dark) 0%, transparent 65%),
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 100% 100%, 35px 35px, 35px 35px;
+        linear-gradient(to bottom, rgba(7, 7, 9, 0.75) 0%, rgba(7, 7, 9, 0.92) 100%),
+        radial-gradient(circle at 80% 20%, rgba(255, 30, 66, 0.25) 0%, transparent 50%),
+        url('https://images2.alphacoders.com/136/1361513.jpeg'); /* Link HD Danjin Splash Art */
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
       min-height: 100vh;
       color: var(--white-pure);
       padding: 30px 16px 80px;
     }
 
-    .container { max-width: 1140px; margin: 0 auto; }
+    .container { max-width: 1140px; margin: 0 auto; position: relative; z-index: 2; }
 
     /* Top Bar */
     .top-bar {
@@ -46,19 +46,21 @@
       border-bottom: 1px solid var(--border-line);
       padding-bottom: 16px;
       margin-bottom: 35px;
+      backdrop-filter: blur(8px);
     }
     .brand-logo {
       font-family: 'Orbitron', sans-serif;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 900;
       letter-spacing: 2px;
       color: var(--white-pure);
+      text-shadow: 0 0 15px rgba(255, 30, 66, 0.6);
     }
     .brand-logo span { color: var(--red-main); }
     
     .btn-nav {
-      background: transparent;
-      border: 1px solid var(--border-line);
+      background: rgba(255, 30, 66, 0.1);
+      border: 1px solid var(--border-red);
       color: var(--white-pure);
       padding: 8px 18px;
       font-size: 14px;
@@ -71,9 +73,7 @@
     }
     .btn-nav:hover {
       background: var(--red-main);
-      border-color: var(--red-main);
-      color: var(--white-pure);
-      box-shadow: 0 0 15px var(--red-glow);
+      box-shadow: 0 0 18px var(--red-glow);
     }
 
     /* Header */
@@ -81,16 +81,17 @@
     .status-tag {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       font-size: 12px;
       font-weight: 700;
       color: var(--red-main);
-      background: rgba(255, 30, 66, 0.08);
+      background: rgba(0, 0, 0, 0.6);
       border: 1px solid var(--border-red);
-      padding: 5px 14px;
-      margin-bottom: 15px;
+      padding: 6px 16px;
+      margin-bottom: 16px;
       text-transform: uppercase;
       letter-spacing: 2px;
+      backdrop-filter: blur(6px);
     }
     .status-tag::before {
       content: '';
@@ -102,14 +103,15 @@
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(28px, 4.5vw, 44px);
+      font-size: clamp(28px, 4.5vw, 46px);
       font-weight: 900;
       color: var(--white-pure);
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 10px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 30, 66, 0.35);
     }
-    header p { color: var(--gray-sub); font-size: 16px; }
+    header p { color: var(--gray-sub); font-size: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
 
     /* Product Grid */
     .grid {
@@ -120,6 +122,8 @@
 
     .card {
       background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid var(--border-line);
       border-top: 2px solid var(--red-main);
       padding: 0;
@@ -130,11 +134,12 @@
       overflow: hidden;
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
       clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
     }
     .card:hover {
       transform: translateY(-6px);
       border-color: var(--red-main);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--red-glow);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 22px var(--red-glow);
     }
 
     /* Thumbnail Acc */
@@ -150,7 +155,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
-      opacity: 0.9;
+      opacity: 0.92;
     }
     .card:hover .thumb-wrapper img {
       transform: scale(1.06);
@@ -160,7 +165,7 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.8);
       border: 1px solid var(--border-line);
       color: #22c55e;
       font-size: 11px;
@@ -190,7 +195,7 @@
     }
 
     .price-box {
-      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
       padding-top: 14px;
       margin-bottom: 16px;
       display: flex;
@@ -230,8 +235,8 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(4, 4, 6, 0.88);
-      backdrop-filter: blur(8px);
+      background: rgba(3, 3, 5, 0.9);
+      backdrop-filter: blur(10px);
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -240,9 +245,9 @@
     .modal-overlay.active { display: flex; }
 
     .modal {
-      background: var(--panel-bg);
+      background: rgba(18, 19, 24, 0.95);
       border: 1px solid var(--border-red);
-      box-shadow: 0 0 35px rgba(255, 30, 66, 0.2);
+      box-shadow: 0 0 40px rgba(255, 30, 66, 0.25);
       width: 100%;
       max-width: 450px;
       padding: 26px 22px;
@@ -279,7 +284,7 @@
     .qr-img { width: 185px; height: 185px; display: block; }
 
     .pay-spec {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       border: 1px solid var(--border-line);
       padding: 12px;
       margin-bottom: 14px;
@@ -296,7 +301,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: var(--white-dim);
+      color: var(--white-pure);
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
@@ -353,7 +358,7 @@
       gap: 12px;
     }
     .history-card {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
       padding: 12px 14px;
@@ -456,7 +461,6 @@
     const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
     const BANK_NAME = "BIDV";
     const BANK_ACC = "96247WGNJZ";
-    // Ảnh mặc định chất lượng cao nếu bạn chưa kịp điền cột image_url
     const DEFAULT_IMG = "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80";
 
     let pollInterval = null;
