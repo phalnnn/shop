@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WUWA STORE | KHO TÀI KHOẢN TỰ ĐỘNG 24/7</title>
+  <title>GỐC BÁN ACC CỦA CHISA 💗</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
       --red-main: #ff1e42;
       --red-glow: rgba(255, 30, 66, 0.5);
       --white-pure: #ffffff;
+      --white-dim: #cbd5e1;
       --gray-sub: #94a3b8;
       --border-line: rgba(255, 255, 255, 0.08);
       --border-red: rgba(255, 30, 66, 0.45);
@@ -21,7 +22,7 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; }
 
-    /* Nền nhận trực tiếp tệp bg.jpg trong thư mục repo */
+    /* Nền Wallpaper */
     body {
       background-color: var(--bg-dark);
       background-image: 
@@ -77,7 +78,7 @@
     }
 
     /* Header */
-    header { text-align: center; margin-bottom: 50px; }
+    header { text-align: center; margin-bottom: 35px; }
     .status-tag {
       display: inline-flex;
       align-items: center;
@@ -116,6 +117,34 @@
       text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 30, 66, 0.4);
     }
     header p { color: var(--gray-sub); font-size: 16px; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+
+    /* Notice & Disclaimer Box */
+    .notice-box {
+      background: rgba(255, 30, 66, 0.07);
+      border: 1px dashed var(--red-main);
+      border-left: 4px solid var(--red-main);
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      border-radius: 4px;
+      backdrop-filter: blur(8px);
+    }
+    .notice-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: var(--red-main);
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .notice-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--white-dim);
+      line-height: 1.7;
+    }
 
     /* Product Grid */
     .grid {
@@ -252,7 +281,7 @@
       box-shadow: 0 0 20px var(--red-glow);
     }
 
-    /* Modal Checkout */
+    /* Modals */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -407,7 +436,7 @@
 
   <div class="container">
     <div class="top-bar">
-      <div class="brand-logo">WUWA<span>.STORE</span></div>
+      <div class="brand-logo">CHISA<span>CHANN.</span></div>
       <button class="btn-nav" onclick="openHistoryModal()">[ Lịch Sử Mua Hàng ]</button>
     </div>
 
@@ -418,6 +447,18 @@
       <h1>KHO TÀI KHOẢN KHỞI ĐẦU</h1>
       <p>Hệ thống tự động phê duyệt và bàn giao mật khẩu trong vòng 3 giây</p>
     </header>
+
+    <!-- BANNER LƯU Ý & MIỄN TRỪ TRÁCH NHIỆM -->
+    <div class="notice-box">
+      <div class="notice-title">
+        ⚠️ ĐIỀU KHOẢN GIAO DỊCH & MIỄN TRỪ TRÁCH NHIỆM
+      </div>
+      <ul class="notice-list">
+        <li>• <strong>Hệ thống sẽ tự động xoá acc sau khi bạn mua</strong> để đảm bảo tính duy nhất và bảo mật.</li>
+        <li>• <strong>Bạn phải tự copy hết toàn bộ thông tin tài khoản (in4)</strong> và đổi mật khẩu bảo mật ngay lập tức.</li>
+        <li>• <strong>Shop miễn trừ toàn bộ trách nhiệm</strong> trong trường hợp người mua không chủ động lưu trữ lại thông tin tài khoản.</li>
+      </ul>
+    </div>
 
     <div class="grid" id="productGrid">
       <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 80px 0; font-size: 16px;">
@@ -464,7 +505,7 @@
       </div>
 
       <div id="step-success" style="display: none;">
-        <h3 class="modal-title" style="color: #22c55e;">GIAO TÀI KHOẢN</h3>
+        <h3 class="modal-title" style="color: #22c55e;">GIAO TÀI KHOẢN THÀNH CÔNG</h3>
         <p style="font-size: 12px; color: var(--gray-sub);">Đã xác nhận thanh toán thành công</p>
 
         <div class="acc-box">
@@ -472,9 +513,14 @@
         </div>
 
         <button class="btn-copy-game" id="btnCopy" onclick="copyAccount(currentAccData, this)">Sao Chép Thông Tin Acc</button>
-        <p style="font-size: 11px; color: var(--red-main); margin-top: 14px; text-transform: uppercase;">
-          * Đăng nhập vào game và đổi mật khẩu bảo mật ngay lập tức!
-        </p>
+        
+        <!-- CẢNH BÁO BẮT BUỘC SAU KHI MUA -->
+        <div style="margin-top: 14px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 30, 66, 0.35); padding: 10px 12px; text-align: left; font-size: 12px; line-height: 1.5;">
+          <p style="color: var(--red-main); font-weight: 700; margin-bottom: 4px;">⚠️ LƯU Ý BẢO MẬT & MIỄN TRỪ TRÁCH NHIỆM:</p>
+          <p style="color: var(--white-dim);">1. Hệ thống sẽ tự động xoá acc sau khi bạn mua.</p>
+          <p style="color: var(--white-dim);">2. Bạn phải tự copy hết toàn bộ thông tin (in4) và lưu lại an toàn.</p>
+          <p style="color: var(--gray-sub); font-size: 11px; margin-top: 4px;">* Shop miễn trừ trách nhiệm nếu bạn làm mất hoặc quên lưu thông tin!</p>
+        </div>
       </div>
     </div>
   </div>
@@ -493,7 +539,7 @@
     const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
     const BANK_NAME = "BIDV";
     const BANK_ACC = "96247WGNJZ";
-    const DEFAULT_IMG = "./bg.jpg"; // Dùng chính tệp ảnh nền làm fallback
+    const DEFAULT_IMG = "./bg.jpg";
 
     let pollInterval = null;
     let currentAccData = "";
@@ -510,24 +556,32 @@
           return;
         }
 
-        grid.innerHTML = data.map(item => `
-          <div class="card">
-            <div class="thumb-wrapper">
-              <span class="thumb-tag">● Sẵn hàng</span>
-              <img src="${item.image_url || DEFAULT_IMG}" alt="${item.game_name}" onerror="this.src='${DEFAULT_IMG}'">
-            </div>
-            <div class="card-body">
-              <h3>${item.game_name}</h3>
-              <div>
-                <div class="price-box">
-                  <span class="price-label">Giá niêm yết</span>
-                  <div class="price-val">${Number(item.price).toLocaleString()} <span>VNĐ</span></div>
+        grid.innerHTML = data.map(item => {
+          // Xử lý thông minh đường dẫn ảnh (link mạng hoặc tên tệp nội bộ)
+          let imgSrc = DEFAULT_IMG;
+          if (item.image_url) {
+            imgSrc = item.image_url.startsWith('http') ? item.image_url : './' + item.image_url;
+          }
+
+          return `
+            <div class="card">
+              <div class="thumb-wrapper">
+                <span class="thumb-tag">● Sẵn hàng</span>
+                <img src="${imgSrc}" alt="${item.game_name}" onerror="this.src='${DEFAULT_IMG}'">
+              </div>
+              <div class="card-body">
+                <h3>${item.game_name}</h3>
+                <div>
+                  <div class="price-box">
+                    <span class="price-label">Giá niêm yết</span>
+                    <div class="price-val">${Number(item.price).toLocaleString()} <span>VNĐ</span></div>
+                  </div>
+                  <button class="btn-buy" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price})">MUA NGAY</button>
                 </div>
-                <button class="btn-buy" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price})">MUA NGAY</button>
               </div>
             </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       } catch (err) {
         document.getElementById('productGrid').innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--red-main); padding: 70px 0;">Lỗi kết nối máy chủ backend. Vui lòng tải lại sau giây lát!</div>';
       }
