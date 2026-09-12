@@ -2,118 +2,108 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>GÓC BÁN ACC CỦA CHISA 💗 | WUWA STORE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Bổ sung font Be Vietnam Pro chuẩn tiếng Việt cực nét -->
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #07080b;
-      --card-bg: rgba(15, 17, 24, 0.94); /* Nền đặc hơn, đọc chữ siêu rõ */
+      --card-bg: rgba(15, 17, 24, 0.94);
       --red-main: #ff1e42;
-      --red-glow: rgba(255, 30, 66, 0.5);
-      --red-soft: rgba(255, 30, 66, 0.16);
+      --red-glow: rgba(255, 30, 66, 0.45);
       --white-pure: #ffffff;
       --white-dim: #e2e8f0;
       --gray-sub: #94a3b8;
-      --border-line: rgba(255, 255, 255, 0.12);
-      --border-red: rgba(255, 30, 66, 0.6);
+      --border-line: rgba(255, 255, 255, 0.1);
+      --border-red: rgba(255, 30, 66, 0.5);
     }
 
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-      font-family: 'Be Vietnam Pro', sans-serif; /* Đổi font đọc văn bản sang font nét rõ */
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Be Vietnam Pro', sans-serif; -webkit-tap-highlight-color: transparent; }
 
-    /* Nền Wallpaper với lớp phủ tối tăng tương phản chữ */
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 50% 15%, rgba(255, 30, 66, 0.2) 0%, transparent 65%),
-        linear-gradient(to bottom, rgba(5, 6, 8, 0.82) 0%, rgba(5, 6, 8, 0.96) 100%),
+        radial-gradient(circle at 50% 15%, rgba(255, 30, 66, 0.18) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(7, 8, 11, 0.85) 0%, rgba(7, 8, 11, 0.98) 100%),
         url('./bg.jpg');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
       min-height: 100vh;
       color: var(--white-pure);
-      padding: 24px 18px 80px;
+      padding: 16px 14px 70px;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
 
-    /* Navigation Bar */
+    /* Top Navigation Bar - Gọn gàng trên 1 hàng ngang */
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border-line);
-      padding-bottom: 16px;
-      margin-bottom: 36px;
-      background: rgba(7, 8, 12, 0.6);
-      padding: 12px 20px;
+      background: rgba(14, 16, 23, 0.75);
+      border: 1px solid var(--border-line);
+      border-left: 3px solid var(--red-main);
+      padding: 10px 14px;
       border-radius: 8px;
-      backdrop-filter: blur(14px);
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
     }
     .brand-logo {
       font-family: 'Orbitron', sans-serif;
-      font-size: 24px;
+      font-size: 17px;
       font-weight: 900;
-      letter-spacing: 2.5px;
+      letter-spacing: 1px;
       color: var(--white-pure);
-      text-shadow: 0 0 20px rgba(255, 30, 66, 0.8);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .brand-logo span { color: var(--red-main); }
+    .brand-logo .heart { font-size: 15px; filter: drop-shadow(0 0 6px var(--red-main)); }
+    
+    .btn-nav {
+      background: rgba(255, 30, 66, 0.15);
+      border: 1px solid var(--border-red);
+      color: var(--white-pure);
+      padding: 7px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
     }
-    .brand-logo span { color: var(--red-main); }
-    .brand-logo .heart { font-size: 19px; filter: drop-shadow(0 0 8px var(--red-main)); }
-    
-    .btn-nav {
-      background: rgba(255, 30, 66, 0.12);
-      border: 1px solid var(--border-red);
-      color: var(--white-pure);
-      padding: 10px 20px;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-      transition: all 0.25s ease;
-    }
-    .btn-nav:hover {
-      background: var(--red-main);
-      box-shadow: 0 0 20px var(--red-glow);
-    }
+    .btn-nav:active { background: var(--red-main); }
 
-    /* Hero Banner */
-    header { text-align: center; margin-bottom: 30px; }
+    /* Header Compact */
+    header { text-align: center; margin-bottom: 20px; }
     .status-tag {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 12px;
+      gap: 6px;
+      font-size: 11px;
       font-weight: 800;
       color: #ff3355;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.8);
       border: 1px solid var(--border-red);
-      padding: 6px 18px;
-      margin-bottom: 16px;
+      padding: 4px 12px;
+      margin-bottom: 10px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 16px rgba(255, 30, 66, 0.25);
+      letter-spacing: 1.5px;
+      border-radius: 20px;
     }
     .pulse-dot {
-      width: 8px; height: 8px;
+      width: 6px; height: 6px;
       background: var(--red-main);
       border-radius: 50%;
-      box-shadow: 0 0 12px var(--red-main);
+      box-shadow: 0 0 8px var(--red-main);
       animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
@@ -123,134 +113,96 @@
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(28px, 4.5vw, 46px);
+      font-size: clamp(20px, 5.5vw, 36px);
       font-weight: 900;
       color: var(--white-pure);
       text-transform: uppercase;
-      letter-spacing: 2.5px;
-      margin-bottom: 10px;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 30, 66, 0.5);
+      letter-spacing: 1.5px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      text-shadow: 0 0 25px rgba(255, 30, 66, 0.4);
     }
     header p { 
-      color: #e2e8f0; 
-      font-size: 15px; 
-      font-weight: 600; 
-      letter-spacing: 0.5px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      color: #cbd5e1; 
+      font-size: 13px; 
+      font-weight: 500;
     }
 
-    /* Features Bar */
-    .features-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
+    /* Thanh Điều khoản & Quy tắc Gọn nhẹ (Không làm nghẽn màn hình) */
+    .quick-notice {
+      background: rgba(18, 14, 20, 0.85);
+      border: 1px solid rgba(255, 30, 66, 0.35);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      line-height: 1.5;
     }
-    .feat-card {
-      background: rgba(14, 16, 23, 0.92);
-      border: 1px solid var(--border-line);
-      border-left: 3px solid var(--red-main);
-      padding: 14px 18px;
-      backdrop-filter: blur(12px);
+    .quick-notice-title {
+      color: #ff3b59;
+      font-weight: 800;
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
       display: flex;
       align-items: center;
-      gap: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      gap: 6px;
     }
-    .feat-icon {
-      font-size: 24px;
-      color: var(--red-main);
-      filter: drop-shadow(0 0 8px var(--red-glow));
+    .quick-notice-body {
+      color: #cbd5e1;
     }
-    .feat-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--white-pure);
-      letter-spacing: 1px;
+    .quick-notice-body strong {
+      color: #ffffff;
     }
-    .feat-desc { font-size: 12px; color: #cbd5e1; margin-top: 2px; }
 
-    /* 3 Cột Điều Khoản - Chữ cực kỳ rõ nét */
-    .notice-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
-      margin-bottom: 45px;
-    }
-    .notice-item {
-      background: rgba(18, 14, 18, 0.94);
-      border: 1px solid rgba(255, 30, 66, 0.4);
-      padding: 18px 20px;
-      backdrop-filter: blur(14px);
-      position: relative;
-      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
-    }
-    .notice-item::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 4px; height: 100%;
-      background: var(--red-main);
-      box-shadow: 0 0 10px var(--red-main);
-    }
-    .notice-header {
+    /* Section Bar */
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      color: #ff3b59;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(255, 30, 66, 0.4);
+      margin-bottom: 14px;
+      padding-left: 4px;
     }
-    .notice-text {
-      font-size: 13.5px;
-      color: #f1f5f9; /* Màu chữ trắng sáng rõ */
-      line-height: 1.6;
-    }
-    .notice-text strong {
-      color: #ffffff;
-      font-weight: 700;
-      text-decoration: underline dotted #ff1e42;
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 14px;
+      background: var(--red-main);
+      box-shadow: 0 0 8px var(--red-main);
     }
 
     /* Product Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 18px;
     }
 
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-line);
       border-top: 3px solid var(--red-main);
+      border-radius: 6px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
       overflow: hidden;
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: var(--red-main);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.95), 0 0 30px var(--red-glow);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     }
 
     .thumb-wrapper {
       position: relative;
       width: 100%;
-      height: 220px;
-      overflow: hidden;
+      height: 180px;
       background: #000000;
     }
     .thumb-wrapper img {
@@ -258,39 +210,30 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transition: transform 0.5s ease, filter 0.3s ease;
-      opacity: 0.95;
-    }
-    .card:hover .thumb-wrapper img {
-      transform: scale(1.08);
-      opacity: 1;
-      filter: brightness(1.08);
     }
     .thumb-wrapper::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(15, 17, 24, 1) 0%, rgba(15, 17, 24, 0.1) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(15, 17, 24, 1) 0%, rgba(15, 17, 24, 0.1) 60%, transparent 100%);
       pointer-events: none;
     }
     .thumb-tag {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(0, 0, 0, 0.88);
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.85);
       border: 1px solid rgba(34, 197, 94, 0.6);
       color: #4ade80;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
-      padding: 5px 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      backdrop-filter: blur(8px);
+      padding: 3px 8px;
+      border-radius: 3px;
       z-index: 2;
     }
 
     .card-body {
-      padding: 18px 22px 22px;
+      padding: 14px 16px 16px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -298,106 +241,82 @@
     }
 
     .card h3 {
-      font-family: 'Be Vietnam Pro', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #ffffff;
-      line-height: 1.5;
-      min-height: 48px;
-      margin-bottom: 16px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+      line-height: 1.4;
+      margin-bottom: 12px;
     }
 
     .price-box {
       border-top: 1px dashed rgba(255, 255, 255, 0.15);
-      padding-top: 14px;
-      margin-bottom: 18px;
+      padding-top: 10px;
+      margin-bottom: 14px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
-    .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+    .price-label { font-size: 11px; color: var(--gray-sub); text-transform: uppercase; font-weight: 700; }
     .price-val {
       font-family: 'Orbitron', sans-serif;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 800;
       color: #ffffff;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
-    .price-val span { color: var(--red-main); font-size: 14px; font-weight: 700; }
+    .price-val span { color: var(--red-main); font-size: 13px; font-weight: 700; }
 
     .btn-buy {
       width: 100%;
       background: var(--red-main);
       color: #ffffff;
       border: none;
-      padding: 13px;
-      font-size: 14px;
+      padding: 12px;
+      font-size: 13.5px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
+      border-radius: 4px;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.25s;
-      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+      box-shadow: 0 0 15px rgba(255, 30, 66, 0.35);
     }
-    .btn-buy::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%; width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: 0.5s;
-    }
-    .btn-buy:hover::before { left: 150%; }
-    .btn-buy:hover {
+    .btn-buy:active {
       background: #ff3355;
-      box-shadow: 0 0 25px var(--red-glow);
+      transform: scale(0.98);
     }
 
-    /* Khung Hết Hàng Cyberpunk */
+    /* Khung Hết Hàng Rất Gọn */
     .empty-state {
       grid-column: 1/-1;
       text-align: center;
-      background: rgba(14, 16, 24, 0.9);
+      background: rgba(14, 16, 24, 0.88);
       border: 1px dashed rgba(255, 30, 66, 0.4);
-      padding: 60px 20px;
-      backdrop-filter: blur(15px);
-      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      padding: 35px 16px;
+      border-radius: 6px;
     }
-    .empty-icon {
-      font-size: 45px;
-      margin-bottom: 12px;
-      display: inline-block;
-      filter: drop-shadow(0 0 15px var(--red-glow));
-    }
+    .empty-icon { font-size: 36px; margin-bottom: 8px; }
     .empty-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 8px;
-      letter-spacing: 2px;
+      margin-bottom: 6px;
     }
     .empty-desc {
       color: #cbd5e1;
-      font-size: 14.5px;
-      max-width: 500px;
-      margin: 0 auto;
-      line-height: 1.6;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
-    /* Modals */
+    /* Modals - Tối ưu toàn màn hình trên điện thoại */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
       background: rgba(3, 3, 5, 0.94);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(12px);
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 14px;
       z-index: 1000;
     }
     .modal-overlay.active { display: flex; }
@@ -405,76 +324,66 @@
     .modal {
       background: rgba(15, 17, 24, 0.98);
       border: 1px solid var(--border-red);
-      box-shadow: 0 0 50px rgba(255, 30, 66, 0.35);
+      border-radius: 8px;
       width: 100%;
-      max-width: 460px;
-      padding: 28px 24px;
+      max-width: 420px;
+      padding: 22px 18px;
       text-align: center;
       position: relative;
-      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
-      animation: popIn 0.25s ease-out;
-    }
-    @keyframes popIn {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
 
     .close-btn {
       position: absolute;
-      top: 14px; right: 18px;
+      top: 10px; right: 14px;
       background: none; border: none;
       font-size: 26px; color: var(--gray-sub);
       cursor: pointer;
     }
-    .close-btn:hover { color: var(--white-pure); }
 
     .modal-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 19px;
+      font-size: 16px;
       font-weight: 800;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       color: var(--white-pure);
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .qr-frame {
       background: #ffffff;
-      padding: 8px;
+      padding: 6px;
       display: inline-block;
-      margin: 16px 0;
-      border: 2px solid var(--white-pure);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+      margin: 12px 0;
+      border-radius: 4px;
     }
-    .qr-img { width: 190px; height: 190px; display: block; }
+    .qr-img { width: 170px; height: 170px; display: block; }
 
     .pay-spec {
       background: rgba(0, 0, 0, 0.85);
-      border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
-      padding: 14px 16px;
-      margin-bottom: 16px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
       text-align: left;
-      font-size: 13px;
+      font-size: 12.5px;
+      border-radius: 4px;
     }
-    .spec-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .spec-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
     .spec-row:last-child { margin-bottom: 0; }
-    .spec-label { color: #94a3b8; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
-    .spec-val { color: #ffffff; font-weight: 700; font-family: monospace; font-size: 14px; }
+    .spec-label { color: #94a3b8; font-size: 11px; font-weight: 600; }
+    .spec-val { color: #ffffff; font-weight: 700; font-family: monospace; }
     .spec-val.red { color: #ff3355; }
 
     .gaming-spinner {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       color: #ffffff;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
     .spin-bar {
-      width: 12px; height: 12px;
+      width: 10px; height: 10px;
       border: 2px solid var(--red-main);
       border-top-color: transparent;
       border-radius: 50%;
@@ -485,121 +394,91 @@
     .acc-box {
       background: #000000;
       border: 1px dashed var(--red-main);
-      padding: 15px;
-      margin: 16px 0;
+      padding: 12px;
+      margin: 12px 0;
       text-align: left;
+      border-radius: 4px;
     }
     .acc-text {
       color: #38bdf8;
       font-family: monospace;
-      font-size: 14px;
+      font-size: 13.5px;
       word-break: break-all;
       line-height: 1.5;
     }
 
     .btn-copy-game {
-      background: transparent;
-      border: 1px solid var(--red-main);
+      background: var(--red-main);
       color: #ffffff;
-      padding: 12px;
+      border: none;
+      padding: 11px;
       font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
       cursor: pointer;
       width: 100%;
-      transition: all 0.2s;
+      border-radius: 4px;
     }
-    .btn-copy-game:hover { background: var(--red-main); box-shadow: 0 0 18px var(--red-glow); }
-    .btn-copy-game.copied { background: #22c55e; border-color: #22c55e; }
+    .btn-copy-game.copied { background: #22c55e; }
 
     /* History List */
     .history-list {
-      max-height: 380px;
+      max-height: 320px;
       overflow-y: auto;
       text-align: left;
-      margin-top: 16px;
+      margin-top: 14px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
     .history-card {
       background: rgba(10, 11, 16, 0.9);
-      border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
-      padding: 12px 14px;
+      padding: 10px 12px;
+      border-radius: 4px;
     }
     .history-header {
       display: flex;
       justify-content: space-between;
-      font-size: 11px;
+      font-size: 10.5px;
       color: #94a3b8;
       font-family: monospace;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+    <!-- TOP BAR GỌN GÀNG -->
     <div class="top-bar">
       <div class="brand-logo">CHISA<span>CHANN.</span> <span class="heart">💗</span></div>
-      <button class="btn-nav" onclick="openHistoryModal()">[ Lịch Sử Mua Hàng ]</button>
+      <button class="btn-nav" onclick="openHistoryModal()">📋 Lịch Sử</button>
     </div>
 
+    <!-- TIÊU ĐỀ KHÔNG BỊ RỚT DÒNG -->
     <header>
       <div class="status-tag">
-        <div class="pulse-dot"></div> Hệ Thống Bán Tự Động 24/7
+        <div class="pulse-dot"></div> Bán Tự Động 24/7
       </div>
       <h1>KHO TÀI KHOẢN KHỞI ĐẦU</h1>
-      <p>Hệ thống tự động phê duyệt và bàn giao mật khẩu trong vòng 3 giây</p>
+      <p>Quét mã VietQR nhận acc ngay sau 3 giây</p>
     </header>
 
-    <!-- THANH THỐNG SỐ UY TÍN (FEATURES HUD) -->
-    <div class="features-bar">
-      <div class="feat-card">
-        <div class="feat-icon">⚡</div>
-        <div>
-          <div class="feat-title">TỰ ĐỘNG BÀN GIAO</div>
-          <div class="feat-desc">Nhận acc ngay sau khi quét QR</div>
-        </div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">🛡️</div>
-        <div>
-          <div class="feat-title">BẢO MẬT TUYỆT ĐỐI</div>
-          <div class="feat-desc">Acc 1 chủ - Tự xóa trên hệ thống</div>
-        </div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">🔥</div>
-        <div>
-          <div class="feat-title">GIÁ SIÊU TỐT</div>
-          <div class="feat-desc">Acc khởi đầu chuẩn SEA sạch 100%</div>
-        </div>
+    <!-- HỘP LƯU Ý BẢO MẬT & ĐIỀU KHOẢN GỌN NHẸ -->
+    <div class="quick-notice">
+      <div class="quick-notice-title">⚠️ ĐIỀU KHOẢN & LƯU Ý BẢO MẬT:</div>
+      <div class="quick-notice-body">
+        Hệ thống sẽ <strong>tự động xóa acc</strong> sau khi giao dịch. Bạn vui lòng <strong>tự copy thông tin và đổi mật khẩu ngay</strong>. Shop miễn trừ trách nhiệm nếu bạn làm mất mật khẩu!
       </div>
     </div>
 
-    <!-- 3 CỘT ĐIỀU KHOẢN CÂN ĐỐI - ĐỌC RÕ NÉT -->
-    <div class="notice-grid">
-      <div class="notice-item">
-        <div class="notice-header">⚠️ 01. TỰ ĐỘNG XOÁ ACC</div>
-        <div class="notice-text">Hệ thống sẽ <strong>tự động xóa tài khoản</strong> khỏi cơ sở dữ liệu ngay sau khi bạn thanh toán để tránh trùng lặp.</div>
-      </div>
-      <div class="notice-item">
-        <div class="notice-header">📋 02. SAO CHÉP IN4</div>
-        <div class="notice-text">Khách hàng vui lòng <strong>tự copy và lưu trữ toàn bộ thông tin</strong> và tiến hành đổi mật khẩu game ngay lập tức.</div>
-      </div>
-      <div class="notice-item">
-        <div class="notice-header">🛡️ 03. MIỄN TRỪ TRÁCH NHIỆM</div>
-        <div class="notice-text">Shop <strong>miễn trừ trách nhiệm</strong> trong trường hợp bạn quên lưu thông tin hoặc làm mất mật khẩu sau khi mua.</div>
-      </div>
-    </div>
+    <div class="section-title">DANH SÁCH TÀI KHOẢN SẴN HÀNG</div>
 
-    <!-- DANH SÁCH SẢN PHẨM -->
+    <!-- DANH SÁCH SẢN PHẨM HIỂN THỊ NGAY -->
     <div class="grid" id="productGrid">
-      <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 80px 0; font-size: 16px;">
-        Đang đồng bộ dữ liệu tài khoản từ máy chủ...
+      <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 50px 0; font-size: 14px;">
+        Đang đồng bộ dữ liệu tài khoản...
       </div>
     </div>
   </div>
@@ -611,7 +490,7 @@
       
       <div id="step-qr">
         <h3 class="modal-title" id="modalProdTitle">XÁC NHẬN ĐƠN HÀNG</h3>
-        <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">Quét mã VietQR bằng app ngân hàng bất kỳ</p>
+        <p style="font-size: 12px; color: #cbd5e1; margin-top: 3px;">Quét mã VietQR bằng app ngân hàng</p>
         
         <div class="qr-frame">
           <img id="qrImage" class="qr-img" src="" alt="Mã VietQR">
@@ -623,7 +502,7 @@
             <span class="spec-val">BIDV</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Tài khoản:</span>
+            <span class="spec-label">Số TK:</span>
             <span class="spec-val red">96247WGNJZ</span>
           </div>
           <div class="spec-row">
@@ -642,20 +521,18 @@
       </div>
 
       <div id="step-success" style="display: none;">
-        <h3 class="modal-title" style="color: #22c55e;">GIAO TÀI KHOẢN THÀNH CÔNG</h3>
-        <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">Đã xác nhận thanh toán thành công</p>
+        <h3 class="modal-title" style="color: #22c55e;">GIAO ACC THÀNH CÔNG</h3>
+        <p style="font-size: 12px; color: #cbd5e1; margin-top: 3px;">Đã nhận tiền thành công</p>
 
         <div class="acc-box">
           <div class="acc-text" id="accDisplay"></div>
         </div>
 
-        <button class="btn-copy-game" id="btnCopy" onclick="copyAccount(currentAccData, this)">Sao Chép Thông Tin Acc</button>
+        <button class="btn-copy-game" id="btnCopy" onclick="copyAccount(currentAccData, this)">SAO CHÉP THÔNG TIN ACC</button>
         
-        <div style="margin-top: 14px; background: rgba(0, 0, 0, 0.85); border: 1px solid rgba(255, 30, 66, 0.4); padding: 12px 14px; text-align: left; font-size: 12.5px; line-height: 1.6;">
-          <p style="color: #ff3355; font-weight: 700; margin-bottom: 4px;">⚠️ LƯU Ý BẢO MẬT & MIỄN TRỪ TRÁCH NHIỆM:</p>
-          <p style="color: #f1f5f9;">1. Hệ thống sẽ tự động xoá acc sau khi bạn mua.</p>
-          <p style="color: #f1f5f9;">2. Bạn phải tự copy hết toàn bộ thông tin (in4) và lưu lại an toàn.</p>
-          <p style="color: #94a3b8; font-size: 11.5px; margin-top: 4px;">* Shop miễn trừ trách nhiệm nếu bạn làm mất hoặc quên lưu thông tin!</p>
+        <div style="margin-top: 12px; background: rgba(0, 0, 0, 0.85); border: 1px solid rgba(255, 30, 66, 0.4); padding: 10px; text-align: left; font-size: 11.5px; line-height: 1.5; border-radius: 4px;">
+          <p style="color: #ff3355; font-weight: 700; margin-bottom: 2px;">⚠️ LƯU Ý QUAN TRỌNG:</p>
+          <p style="color: #f1f5f9;">Acc đã được xóa khỏi hệ thống. Hãy copy và đổi pass ngay!</p>
         </div>
       </div>
     </div>
@@ -663,10 +540,10 @@
 
   <!-- MODAL LỊCH SỬ -->
   <div class="modal-overlay" id="historyModal">
-    <div class="modal" style="max-width: 500px;">
+    <div class="modal">
       <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
       <h3 class="modal-title">LỊCH SỬ ĐÃ MUA</h3>
-      <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">Các đơn hàng thành công trên thiết bị này</p>
+      <p style="font-size: 12px; color: #cbd5e1; margin-top: 3px;">Đơn hàng trên thiết bị này</p>
       <div class="history-list" id="historyContainer"></div>
     </div>
   </div>
@@ -691,8 +568,8 @@
           grid.innerHTML = `
             <div class="empty-state">
               <div class="empty-icon">📦</div>
-              <div class="empty-title">KHO TẠM THỜI HẾT HÀNG</div>
-              <div class="empty-desc">Tất cả tài khoản trong đợt này đã được giao dịch thành công. Vui lòng quay lại vào đợt cập nhật tiếp theo nhé!</div>
+              <div class="empty-title">KHO ĐANG HẾT HÀNG</div>
+              <div class="empty-desc">Tất cả acc đợt này đã bán hết. Vui lòng quay lại vào đợt cập nhật tiếp theo!</div>
             </div>
           `;
           return;
@@ -714,7 +591,7 @@
                 <h3>${item.game_name}</h3>
                 <div>
                   <div class="price-box">
-                    <span class="price-label">Giá niêm yết</span>
+                    <span class="price-label">Giá bán</span>
                     <div class="price-val">${Number(item.price).toLocaleString()} <span>VNĐ</span></div>
                   </div>
                   <button class="btn-buy" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price})">MUA NGAY</button>
@@ -724,7 +601,7 @@
           `;
         }).join('');
       } catch (err) {
-        document.getElementById('productGrid').innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--red-main); padding: 70px 0;">Lỗi kết nối máy chủ backend. Vui lòng tải lại sau giây lát!</div>';
+        document.getElementById('productGrid').innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--red-main); padding: 50px 0;">Lỗi kết nối máy chủ. Vui lòng thử lại sau!</div>';
       }
     }
 
@@ -734,7 +611,7 @@
       document.getElementById('step-success').style.display = 'none';
       document.getElementById('paymentModal').classList.add('active');
 
-      document.getElementById('modalAmount').innerText = "ĐANG KHỞI TẠO...";
+      document.getElementById('modalAmount').innerText = "ĐANG TẠO...";
       document.getElementById('modalOrderCode').innerText = "...";
       document.getElementById('qrImage').src = "";
 
@@ -765,7 +642,7 @@
 
         startPolling(order.orderCode);
       } catch (e) {
-        alert("Không thể kết nối đến máy chủ thanh toán!");
+        alert("Không thể kết nối đến máy chủ!");
         closePayment();
       }
     }
@@ -807,7 +684,7 @@
       const container = document.getElementById('historyContainer');
 
       if (history.length === 0) {
-        container.innerHTML = '<p style="text-align: center; color: var(--gray-sub); padding: 35px 0;">Chưa có giao dịch nào được lưu trên thiết bị này.</p>';
+        container.innerHTML = '<p style="text-align: center; color: var(--gray-sub); padding: 30px 0;">Chưa có giao dịch nào.</p>';
       } else {
         container.innerHTML = history.map(item => `
           <div class="history-card">
@@ -815,11 +692,11 @@
               <span>ĐƠN: #${item.orderCode}</span>
               <span>${item.date}</span>
             </div>
-            <div style="font-weight: 700; margin-bottom: 8px;">${item.gameName} <span style="color: var(--red-main);">(${Number(item.amount).toLocaleString()}đ)</span></div>
-            <div class="acc-box" style="margin: 8px 0; padding: 10px;">
+            <div style="font-weight: 700; margin-bottom: 6px; font-size: 13px;">${item.gameName} <span style="color: var(--red-main);">(${Number(item.amount).toLocaleString()}đ)</span></div>
+            <div class="acc-box" style="margin: 6px 0; padding: 8px;">
               <div class="acc-text">${item.accountInfo}</div>
             </div>
-            <button class="btn-copy-game" style="padding: 8px; font-size: 12px;" onclick="copyAccount('${item.accountInfo}', this)">SAO CHÉP LẠI</button>
+            <button class="btn-copy-game" style="padding: 7px; font-size: 11.5px;" onclick="copyAccount('${item.accountInfo}', this)">SAO CHÉP LẠI</button>
           </div>
         `).join('');
       }
@@ -841,7 +718,7 @@
       if (!text) return;
       navigator.clipboard.writeText(text).then(() => {
         const origin = btnElement.innerText;
-        btnElement.innerText = "✓ ĐÃ SAO CHÉP VÀO BỘ NHỚ TẠM";
+        btnElement.innerText = "✓ ĐÃ SAO CHÉP";
         btnElement.classList.add('copied');
         setTimeout(() => {
           btnElement.innerText = origin;
