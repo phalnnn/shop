@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WUWA STORE | SHOP ACC WUTHERING WAVES TỰ ĐỘNG</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0a0a0c;
       --panel-bg: #121318;
-      --card-bg: rgba(18, 19, 24, 0.88);
+      --card-bg: rgba(18, 19, 24, 0.9);
       --red-main: #ff1e42;
       --red-glow: rgba(255, 30, 66, 0.4);
       --red-dark: #8a0c20;
@@ -38,7 +38,7 @@
 
     .container { max-width: 1140px; margin: 0 auto; }
 
-    /* Top Action Bar */
+    /* Top Bar */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -76,8 +76,8 @@
       box-shadow: 0 0 15px var(--red-glow);
     }
 
-    /* Hero Banner */
-    header { text-align: center; margin-bottom: 50px; }
+    /* Header */
+    header { text-align: center; margin-bottom: 45px; }
     .status-tag {
       display: inline-flex;
       align-items: center;
@@ -108,14 +108,13 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 10px;
-      text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
     }
-    header p { color: var(--gray-sub); font-size: 16px; letter-spacing: 0.5px; }
+    header p { color: var(--gray-sub); font-size: 16px; }
 
     /* Product Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 24px;
     }
 
@@ -123,11 +122,12 @@
       background: var(--card-bg);
       border: 1px solid var(--border-line);
       border-top: 2px solid var(--red-main);
-      padding: 24px;
+      padding: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
+      overflow: hidden;
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
       clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
     }
@@ -137,33 +137,62 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--red-glow);
     }
 
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      font-size: 12px;
+    /* Thumbnail Acc */
+    .thumb-wrapper {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #000;
+    }
+    .thumb-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      opacity: 0.9;
+    }
+    .card:hover .thumb-wrapper img {
+      transform: scale(1.06);
+      opacity: 1;
+    }
+    .thumb-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.75);
+      border: 1px solid var(--border-line);
+      color: #22c55e;
+      font-size: 11px;
       font-weight: 700;
+      padding: 3px 8px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--gray-sub);
+      backdrop-filter: blur(4px);
     }
-    .stock-badge { color: #22c55e; }
+
+    .card-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
 
     .card h3 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--white-pure);
       line-height: 1.4;
-      min-height: 48px;
-      margin-bottom: 24px;
+      min-height: 44px;
+      margin-bottom: 16px;
     }
 
     .price-box {
       border-top: 1px dashed rgba(255, 255, 255, 0.08);
-      padding-top: 16px;
-      margin-bottom: 18px;
+      padding-top: 14px;
+      margin-bottom: 16px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -171,7 +200,7 @@
     .price-label { font-size: 12px; color: var(--gray-sub); text-transform: uppercase; font-weight: 600; }
     .price-val {
       font-family: 'Orbitron', sans-serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       color: var(--white-pure);
     }
@@ -182,8 +211,8 @@
       background: var(--red-main);
       color: var(--white-pure);
       border: none;
-      padding: 13px;
-      font-size: 16px;
+      padding: 12px;
+      font-size: 15px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1.5px;
@@ -216,7 +245,7 @@
       box-shadow: 0 0 35px rgba(255, 30, 66, 0.2);
       width: 100%;
       max-width: 450px;
-      padding: 30px 24px;
+      padding: 26px 22px;
       text-align: center;
       position: relative;
       clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
@@ -232,7 +261,7 @@
 
     .modal-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
       margin-bottom: 6px;
       color: var(--white-pure);
@@ -240,23 +269,20 @@
       letter-spacing: 1px;
     }
 
-    /* QR Frame */
     .qr-frame {
       background: #ffffff;
-      padding: 10px;
+      padding: 8px;
       display: inline-block;
-      margin: 16px 0 18px;
+      margin: 14px 0 16px;
       border: 2px solid var(--white-pure);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
-    .qr-img { width: 190px; height: 190px; display: block; }
+    .qr-img { width: 185px; height: 185px; display: block; }
 
-    /* Payment Spec Details */
     .pay-spec {
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid var(--border-line);
-      padding: 14px;
-      margin-bottom: 16px;
+      padding: 12px;
+      margin-bottom: 14px;
       text-align: left;
       font-size: 13px;
     }
@@ -271,7 +297,7 @@
       align-items: center;
       gap: 10px;
       color: var(--white-dim);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -285,12 +311,11 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Account Result Box */
     .acc-box {
       background: #000000;
       border: 1px dashed var(--red-main);
-      padding: 16px;
-      margin: 18px 0;
+      padding: 14px;
+      margin: 16px 0;
       text-align: left;
     }
     .acc-text {
@@ -314,28 +339,24 @@
       width: 100%;
       transition: all 0.2s;
     }
-    .btn-copy-game:hover {
-      background: var(--red-main);
-      box-shadow: 0 0 15px var(--red-glow);
-    }
+    .btn-copy-game:hover { background: var(--red-main); box-shadow: 0 0 15px var(--red-glow); }
     .btn-copy-game.copied { background: #22c55e; border-color: #22c55e; }
 
-    /* History List */
+    /* History */
     .history-list {
       max-height: 380px;
       overflow-y: auto;
       text-align: left;
-      margin-top: 18px;
+      margin-top: 16px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding-right: 4px;
     }
     .history-card {
       background: rgba(0, 0, 0, 0.5);
       border: 1px solid var(--border-line);
       border-left: 3px solid var(--red-main);
-      padding: 12px 16px;
+      padding: 12px 14px;
     }
     .history-header {
       display: flex;
@@ -345,7 +366,6 @@
       font-family: monospace;
       margin-bottom: 6px;
     }
-    .history-prod { font-weight: 700; font-size: 15px; color: var(--white-pure); margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -359,22 +379,21 @@
     <header>
       <div class="status-tag">Hệ Thống Phục Vụ Tự Động 24/7</div>
       <h1>KHO TÀI KHOẢN KHỞI ĐẦU</h1>
-      <p>Hệ thống tự động phê duyệt và giao acc lập tức sau 3 giây chuyển khoản</p>
+      <p>Hệ thống tự động phê duyệt và bàn giao mật khẩu trong vòng 3 giây</p>
     </header>
 
     <div class="grid" id="productGrid">
       <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 70px 0;">
-        Đang tải dữ liệu tài khoản từ máy chủ...
+        Đang tải danh sách tài khoản từ máy chủ...
       </div>
     </div>
   </div>
 
-  <!-- MODAL THANH TOÁN (VIETQR BIDV) -->
+  <!-- MODAL THANH TOÁN -->
   <div class="modal-overlay" id="paymentModal">
     <div class="modal">
       <button class="close-btn" onclick="closePayment()">&times;</button>
       
-      <!-- Chờ thanh toán -->
       <div id="step-qr">
         <h3 class="modal-title" id="modalProdTitle">XÁC NHẬN ĐƠN HÀNG</h3>
         <p style="font-size: 12px; color: var(--gray-sub);">Quét mã VietQR bằng app ngân hàng bất kỳ</p>
@@ -407,10 +426,9 @@
         </div>
       </div>
 
-      <!-- Đã thanh toán thành công -->
       <div id="step-success" style="display: none;">
         <h3 class="modal-title" style="color: #22c55e;">GIAO TÀI KHOẢN</h3>
-        <p style="font-size: 12px; color: var(--gray-sub);">Giao dịch đã được hệ thống xác thực tự động</p>
+        <p style="font-size: 12px; color: var(--gray-sub);">Đã xác nhận thanh toán thành công</p>
 
         <div class="acc-box">
           <div class="acc-text" id="accDisplay"></div>
@@ -424,31 +442,27 @@
     </div>
   </div>
 
-  <!-- MODAL LỊCH SỬ GIAO DỊCH -->
+  <!-- MODAL LỊCH SỬ -->
   <div class="modal-overlay" id="historyModal">
     <div class="modal" style="max-width: 500px;">
       <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
       <h3 class="modal-title">LỊCH SỬ ĐÃ MUA</h3>
-      <p style="font-size: 12px; color: var(--gray-sub);">Các đơn hàng thành công trên trình duyệt này</p>
-
-      <div class="history-list" id="historyContainer">
-        <!-- Render từ LocalStorage -->
-      </div>
+      <p style="font-size: 12px; color: var(--gray-sub);">Các đơn hàng thành công trên thiết bị này</p>
+      <div class="history-list" id="historyContainer"></div>
     </div>
   </div>
 
   <script>
-    // ================= CẤU HÌNH HỆ THỐNG =================
     const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
     const BANK_NAME = "BIDV";
     const BANK_ACC = "96247WGNJZ";
-    // =====================================================
+    // Ảnh mặc định chất lượng cao nếu bạn chưa kịp điền cột image_url
+    const DEFAULT_IMG = "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80";
 
     let pollInterval = null;
     let currentAccData = "";
     let currentOrderInfo = null;
 
-    // 1. Tải danh sách tài khoản còn bán
     async function loadAccounts() {
       try {
         const res = await fetch(`${BACKEND_URL}/api/accounts`);
@@ -462,19 +476,19 @@
 
         grid.innerHTML = data.map(item => `
           <div class="card">
-            <div>
-              <div class="card-meta">
-                <span>Wuthering Waves</span>
-                <span class="stock-badge">● Còn hàng</span>
-              </div>
-              <h3>${item.game_name}</h3>
+            <div class="thumb-wrapper">
+              <span class="thumb-tag">● Sẵn hàng</span>
+              <img src="${item.image_url || DEFAULT_IMG}" alt="${item.game_name}" onerror="this.src='${DEFAULT_IMG}'">
             </div>
-            <div>
-              <div class="price-box">
-                <span class="price-label">Giá niêm yết</span>
-                <div class="price-val">${Number(item.price).toLocaleString()} <span>VNĐ</span></div>
+            <div class="card-body">
+              <h3>${item.game_name}</h3>
+              <div>
+                <div class="price-box">
+                  <span class="price-label">Giá niêm yết</span>
+                  <div class="price-val">${Number(item.price).toLocaleString()} <span>VNĐ</span></div>
+                </div>
+                <button class="btn-buy" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price})">MUA NGAY</button>
               </div>
-              <button class="btn-buy" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price})">MUA NGAY</button>
             </div>
           </div>
         `).join('');
@@ -483,7 +497,6 @@
       }
     }
 
-    // 2. Tạo đơn và bật VietQR lập tức
     async function createOrderInstant(accId, name, price) {
       document.getElementById('modalProdTitle').innerText = name;
       document.getElementById('step-qr').style.display = 'block';
@@ -526,7 +539,6 @@
       }
     }
 
-    // 3. Polling kiểm tra SePay webhook
     function startPolling(orderCode) {
       if (pollInterval) clearInterval(pollInterval);
 
@@ -553,7 +565,6 @@
       }, 2000);
     }
 
-    // 4. Quản lý Lịch sử Mua Hàng
     function saveToHistory(orderData) {
       let history = JSON.parse(localStorage.getItem('wuwa_orders_history') || '[]');
       history.unshift(orderData);
@@ -573,7 +584,7 @@
               <span>ĐƠN: #${item.orderCode}</span>
               <span>${item.date}</span>
             </div>
-            <div class="history-prod">${item.gameName} <span style="color: var(--red-main);">(${Number(item.amount).toLocaleString()}đ)</span></div>
+            <div style="font-weight: 700; margin-bottom: 8px;">${item.gameName} <span style="color: var(--red-main);">(${Number(item.amount).toLocaleString()}đ)</span></div>
             <div class="acc-box" style="margin: 8px 0; padding: 10px;">
               <div class="acc-text">${item.accountInfo}</div>
             </div>
