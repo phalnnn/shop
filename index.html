@@ -76,7 +76,7 @@
     // ================= CẤU HÌNH SHOP =================
     const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
     const BANK_NAME = "BIDV";
-    const BANK_ACC = "8833220630";
+    const BANK_ACC = "96247WGNJZ";
     // =================================================
 
     let selectedAccId = null;
@@ -147,7 +147,7 @@
           return;
         }
 
-        // Tạo ảnh QR SePay khớp tự động nội dung và số tiền
+        // Tạo ảnh QR SePay khớp tự động số tài khoản ảo BIDV, nội dung và số tiền
         const qrUrl = `https://qr.sepay.vn/img?bank=${BANK_NAME}&acc=${BANK_ACC}&amount=${order.amount}&des=${order.orderCode}`;
         document.getElementById('qrImage').src = qrUrl;
         document.getElementById('step-input').style.display = 'none';
