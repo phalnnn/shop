@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Acc Tự Động</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background-color: #f3f4f6; padding: 30px 15px; }
+    .container { max-width: 900px; margin: auto; }
+    h1 { text-align: center; margin-bottom: 25px; color: #1f2937; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
+    .card h3 { margin-bottom: 10px; color: #111827; }
+    .card .price { color: #dc2626; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+    .btn { background: #2563eb; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 15px; width: 100%; }
+    .btn:hover { background: #1d4ed8; }
+
+    /* Modal Thanh Toán */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; padding: 15px; }
+    .modal-overlay.active { display: flex; }
+    .modal { background: #fff; border-radius: 8px; max-width: 450px; width: 100%; padding: 25px; text-align: center; position: relative; }
+    .close-btn { position: absolute; top: 12px; right: 15px; font-size: 22px; cursor: pointer; border: none; background: none; }
+    .input-field { width: 100%; padding: 10px; margin: 12px 0; border: 1px solid #d1d5db; border-radius: 6px; }
+    .qr-img { width: 220px; height: 220px; margin: 15px auto; display: block; border: 1px solid #e5e7eb; }
+    .status-badge { display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 10px; }
+    .status-waiting { background: #fef3c7; color: #92400e; }
+    .status-success { background: #dcfce7; color: #166534; }
+    .acc-result { background: #f8fafc; border: 1px dashed #64748b; padding: 12px; margin-top: 15px; border-radius: 6px; font-family: monospace; text-align: left; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cửa Hàng Tài Khoản Tự Động</h1>
+
+    <!-- Danh sách Acc mẫu -->
+    <div class="grid">
+      <div class="card">
+        <h3>Acc Valorant Random</h3>
+        <p class="price">2.000 VNĐ</p>
+        <button class="btn" onclick="openPayment('ACC_01', 2000, 'Acc Valorant Random')">Mua Ngay</button>
+      </div>
+      <div class="card">
+        <h3>Acc Genshin AR 10</h3>
+        <p class="price">5.000 VNĐ</p>
+        <button class="btn" onclick="openPayment('ACC_02', 5000, 'Acc Genshin AR 10')">Mua Ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Thanh Toán -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal">
+      <button class="close-btn" onclick="closePayment()">&times;</button>
+      <h3 id="modalTitle">Thanh Toán Đơn Hàng</h3>
+      
+      <div id="step-input">
+        <p style="margin-top: 10px; font-size: 14px; color: #6b7280;">Nhập email để hệ thống gửi mật khẩu dự phòng:</p>
+        <input type="email" id="customerEmail" class="input-field" placeholder="vidu@gmail.com" required>
+        <button class="btn" onclick="createOrder()">Tạo mã QR Chuyển Tiền</button>
+      </div>
+
+      <div id="step-qr" style="display: none;">
+        <p style="font-size: 14px; color: #4b5563;">Quét mã VietQR bên dưới để thanh toán tự động:</p>
+        <img id="qrImage" class="qr-img" src="" alt="Mã VietQR">
+        <div id="statusTag" class="status-badge status-waiting">Đang chờ quét mã chuyển tiền...</div>
+      </div>
+
+      <div id="step-success" style="display: none;">
+        <div class="status-badge status-success">Thanh toán thành công!</div>
+        <p style="margin-top: 10px; font-size: 14px;">Thông tin tài khoản của bạn:</p>
+        <div class="acc-result" id="accData">Đang tải...</div>
+        <p style="font-size: 12px; color: #6b7280; margin-top: 10px;">Một bản sao đã được gửi qua email của bạn.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // CẤU HÌNH THÔNG TIN TẠM THỜI
+    const BANK_NAME = "MBBank";       // Mã ngân hàng (MBBank, VCB, ACB, TPBank,...)
+    const BANK_ACC = "0987654321";    // Số tài khoản của bạn
+    let selectedItem = {};
+    let pollInterval = null;
+
+    function openPayment(id, price, name) {
+      selectedItem = { id, price, name };
+      document.getElementById('modalTitle').innerText = `Mua: ${name}`;
+      document.getElementById('step-input').style.display = 'block';
+      document.getElementById('step-qr').style.display = 'none';
+      document.getElementById('step-success').style.display = 'none';
+      document.getElementById('paymentModal').classList.add('active');
+    }
+
+    function closePayment() {
+      document.getElementById('paymentModal').classList.remove('active');
+      if (pollInterval) clearInterval(pollInterval);
+    }
+
+    function createOrder() {
+      const email = document.getElementById('customerEmail').value.trim();
+      if (!email || !email.includes('@')) {
+        alert('Vui lòng nhập email hợp lệ');
+        return;
+      }
+
+      // Tạo mã đơn hàng duy nhất: DH + 4 chữ số ngẫu nhiên
+      const orderCode = 'DH' + Math.floor(1000 + Math.random() * 9000);
+
+      // Link tạo VietQR nhanh qua SePay
+      const qrUrl = `https://qr.sepay.vn/img?bank=${BANK_NAME}&acc=${BANK_ACC}&amount=${selectedItem.price}&des=${orderCode}`;
+      
+      document.getElementById('qrImage').src = qrUrl;
+      document.getElementById('step-input').style.display = 'none';
+      document.getElementById('step-qr').style.display = 'block';
+
+      // Giả lập thăm dò (polling) backend:
+      // Sau khi nối backend thật, chỗ này sẽ fetch API kiểm tra trạng thái đơn
+      console.log(`Đã tạo đơn: ${orderCode} cho ${email}`);
+    }
+  </script>
+</body>
+</html>
