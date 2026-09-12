@@ -323,7 +323,7 @@
     .btn-buy:hover { background: #ff3355; box-shadow: 0 0 25px var(--red-glow); }
     .btn-buy:active { transform: scale(0.95); background: #e60026; }
 
-    /* Gallery 2 Ảnh */
+    /* Gallery Chi Tiết Ảnh */
     .acc-gallery {
       margin-bottom: 14px;
       background: #000000;
@@ -686,7 +686,7 @@
             </div>
             <div class="spec-row">
               <span class="spec-label">Số TK:</span>
-              <span class="spec-val red">0971270632</span>
+              <span class="spec-val red">2792637424</span>
             </div>
             <div class="spec-row">
               <span class="spec-label">Số tiền:</span>
@@ -740,10 +740,9 @@
   <script>
     const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
     const BANK_NAME = "MB";
-    const BANK_ACC = "0971270632";
+    const BANK_ACC = "2792637424";
     const DEFAULT_IMG = "./bg.jpg";
 
-    // LINK SUPABASE STORAGE CHÍNH THỨC CỦA BẠN
     const SUPABASE_IMG_BASE = "https://okfuncwyrjgeqddunzal.supabase.co/storage/v1/object/public/accs/";
 
     const ICON_COPY = `<svg viewBox="0 0 24 24"><path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z"/></svg>`;
@@ -875,7 +874,6 @@
 
         document.getElementById('modalAmount').innerText = `${Number(order.amount).toLocaleString()} VNĐ`;
         document.getElementById('modalOrderCode').innerText = order.orderCode;
-        // TỰ ĐỘNG TẠO MÃ VIETQR VỚI NGÂN HÀNG MB
         document.getElementById('qrImage').src = `https://qr.sepay.vn/img?bank=${BANK_NAME}&acc=${BANK_ACC}&amount=${order.amount}&des=${order.orderCode}`;
 
         startPolling(order.orderCode);
