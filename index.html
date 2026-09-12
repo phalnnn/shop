@@ -178,7 +178,6 @@
       gap: 18px;
     }
 
-    /* ================= HIỆU ỨNG THẺ ACC ================= */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-line);
@@ -199,7 +198,6 @@
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85), 0 0 20px var(--red-glow);
     }
 
-    /* HIỆU ỨNG BỪNG SÁNG KHI ĐƯỢC CHỌN (ACTIVE HIGHLIGHT) */
     .card.selected-active {
       border: 2px solid var(--red-main) !important;
       box-shadow: 0 0 35px var(--red-glow), inset 0 0 15px rgba(255, 30, 66, 0.3) !important;
@@ -283,7 +281,6 @@
     }
     .price-val span { color: var(--red-main); font-size: 13px; font-weight: 700; }
 
-    /* ================= HIỆU ỨNG NÚT MUA ================= */
     .btn-buy {
       width: 100%;
       background: var(--red-main);
@@ -301,7 +298,6 @@
       box-shadow: 0 0 15px rgba(255, 30, 66, 0.35);
       transition: all 0.2s ease;
     }
-    /* Tia sáng quét ngang */
     .btn-buy::before {
       content: '';
       position: absolute;
@@ -312,36 +308,9 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
       transition: 0.5s ease;
     }
-    .btn-buy:hover::before {
-      left: 150%;
-    }
-    .btn-buy:hover {
-      background: #ff3355;
-      box-shadow: 0 0 25px var(--red-glow);
-    }
-    .btn-buy:active {
-      transform: scale(0.95);
-      background: #e60026;
-    }
-
-    /* Khung Hết Hàng */
-    .empty-state {
-      grid-column: 1/-1;
-      text-align: center;
-      background: rgba(14, 16, 24, 0.88);
-      border: 1px dashed rgba(255, 30, 66, 0.4);
-      padding: 35px 16px;
-      border-radius: 6px;
-    }
-    .empty-icon { font-size: 36px; margin-bottom: 8px; }
-    .empty-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-    .empty-desc { color: #cbd5e1; font-size: 13px; line-height: 1.5; }
+    .btn-buy:hover::before { left: 150%; }
+    .btn-buy:hover { background: #ff3355; box-shadow: 0 0 25px var(--red-glow); }
+    .btn-buy:active { transform: scale(0.95); background: #e60026; }
 
     /* Modals */
     .modal-overlay {
@@ -362,7 +331,7 @@
       border: 1px solid var(--border-red);
       border-radius: 8px;
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       padding: 22px 18px;
       text-align: center;
       position: relative;
@@ -454,33 +423,143 @@
       cursor: pointer;
       width: 100%;
       border-radius: 4px;
+      transition: 0.2s;
     }
     .btn-copy-game.copied { background: #22c55e; }
 
-    /* History List */
-    .history-list {
-      max-height: 320px;
-      overflow-y: auto;
-      text-align: left;
-      margin-top: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .history-card {
-      background: rgba(10, 11, 16, 0.9);
-      border-left: 3px solid var(--red-main);
-      padding: 10px 12px;
-      border-radius: 4px;
-    }
-    .history-header {
+    /* ================= GIAO DIỆN LỊCH SỬ NÂNG CẤP ================= */
+    .history-top-actions {
       display: flex;
       justify-content: space-between;
-      font-size: 10.5px;
-      color: #94a3b8;
-      font-family: monospace;
-      margin-bottom: 4px;
+      align-items: center;
+      margin-top: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-line);
     }
+    .history-count {
+      font-size: 12px;
+      color: var(--gray-sub);
+    }
+    .btn-clear-history {
+      background: transparent;
+      border: 1px solid rgba(255, 30, 66, 0.4);
+      color: #ff4d6d;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .btn-clear-history:hover { background: rgba(255, 30, 66, 0.15); }
+
+    .history-list {
+      max-height: 380px;
+      overflow-y: auto;
+      text-align: left;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-right: 4px;
+    }
+    .history-list::-webkit-scrollbar { width: 4px; }
+    .history-list::-webkit-scrollbar-thumb { background: var(--red-main); border-radius: 4px; }
+
+    .history-card {
+      background: rgba(10, 12, 18, 0.95);
+      border: 1px solid var(--border-line);
+      border-left: 3px solid var(--red-main);
+      padding: 12px 14px;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .history-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+    .history-badge-success {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #4ade80;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    .history-time { color: #94a3b8; font-family: monospace; font-size: 10.5px; }
+
+    .history-prod-name {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .history-prod-price { color: var(--red-main); font-family: 'Orbitron', sans-serif; font-size: 12px; }
+
+    /* Bảng thông tin tách riêng Tài Khoản & Mật Khẩu */
+    .cred-table {
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cred-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+    .cred-label {
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 600;
+      min-width: 45px;
+    }
+    .cred-val {
+      color: #38bdf8;
+      font-family: monospace;
+      font-size: 12.5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 170px;
+    }
+    .btn-copy-chip {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: 0.15s;
+    }
+    .btn-copy-chip:hover { background: var(--red-main); border-color: var(--red-main); }
+    .btn-copy-chip.copied { background: #22c55e; border-color: #22c55e; }
+
+    .btn-copy-full {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(255, 30, 66, 0.4);
+      color: var(--white-pure);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .btn-copy-full:hover { background: var(--red-main); }
   </style>
 </head>
 <body>
@@ -570,12 +649,17 @@
     </div>
   </div>
 
-  <!-- MODAL LỊCH SỬ -->
+  <!-- MODAL LỊCH SỬ MUA HÀNG MỚI -->
   <div class="modal-overlay" id="historyModal">
     <div class="modal">
       <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
       <h3 class="modal-title">LỊCH SỬ ĐÃ MUA</h3>
-      <p style="font-size: 12px; color: #cbd5e1; margin-top: 3px;">Đơn hàng trên thiết bị này</p>
+      
+      <div class="history-top-actions">
+        <span class="history-count" id="historyCount">0 giao dịch</span>
+        <button class="btn-clear-history" onclick="clearAllHistory()">🗑️ Xóa Lịch Sử</button>
+      </div>
+
       <div class="history-list" id="historyContainer"></div>
     </div>
   </div>
@@ -598,10 +682,10 @@
 
         if (!data || data.length === 0) {
           grid.innerHTML = `
-            <div class="empty-state">
-              <div class="empty-icon">📦</div>
-              <div class="empty-title">KHO ĐANG HẾT HÀNG</div>
-              <div class="empty-desc">Tất cả acc đợt này đã bán hết. Vui lòng quay lại vào đợt cập nhật tiếp theo!</div>
+            <div style="grid-column: 1/-1; text-align: center; background: rgba(14, 16, 24, 0.88); border: 1px dashed rgba(255, 30, 66, 0.4); padding: 35px 16px; border-radius: 6px;">
+              <div style="font-size: 36px; margin-bottom: 8px;">📦</div>
+              <div style="font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">KHO ĐANG HẾT HÀNG</div>
+              <div style="color: #cbd5e1; font-size: 13px;">Tất cả acc đợt này đã bán hết. Vui lòng quay lại sau!</div>
             </div>
           `;
           return;
@@ -638,7 +722,6 @@
     }
 
     async function createOrderInstant(accId, name, price) {
-      // 1. KÍCH HOẠT HIỆU ỨNG LÀM NỔI BẬT THẺ ĐƯỢC CHỌN
       document.querySelectorAll('.card').forEach(c => c.classList.remove('selected-active'));
       const activeCard = document.getElementById(`card-${accId}`);
       const activeBtn = document.getElementById(`btn-buy-${accId}`);
@@ -646,7 +729,6 @@
       if (activeCard) activeCard.classList.add('selected-active');
       if (activeBtn) activeBtn.innerText = "ĐANG KHỞI TẠO...";
 
-      // 2. MỞ POPUP THANH TOÁN
       document.getElementById('modalProdTitle').innerText = name;
       document.getElementById('step-qr').style.display = 'block';
       document.getElementById('step-success').style.display = 'none';
@@ -674,7 +756,7 @@
           orderCode: order.orderCode,
           gameName: name,
           amount: order.amount,
-          date: new Date().toLocaleString('vi-VN')
+          date: new Date().toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'}) + ' - ' + new Date().toLocaleDateString('vi-VN')
         };
 
         document.getElementById('modalAmount').innerText = `${Number(order.amount).toLocaleString()} VNĐ`;
@@ -720,29 +802,82 @@
       localStorage.setItem('wuwa_orders_history', JSON.stringify(history));
     }
 
+    /* XỬ LÝ GIAO DIỆN LỊCH SỬ NÂNG CẤP */
     function openHistoryModal() {
       const history = JSON.parse(localStorage.getItem('wuwa_orders_history') || '[]');
       const container = document.getElementById('historyContainer');
+      const countEl = document.getElementById('historyCount');
+
+      countEl.innerText = `${history.length} đơn hàng đã mua`;
 
       if (history.length === 0) {
-        container.innerHTML = '<p style="text-align: center; color: var(--gray-sub); padding: 30px 0;">Chưa có giao dịch nào.</p>';
+        container.innerHTML = '<p style="text-align: center; color: var(--gray-sub); padding: 35px 0; font-size: 13px;">Bạn chưa có giao dịch nào trên thiết bị này.</p>';
       } else {
-        container.innerHTML = history.map(item => `
-          <div class="history-card">
-            <div class="history-header">
-              <span>ĐƠN: #${item.orderCode}</span>
-              <span>${item.date}</span>
+        container.innerHTML = history.map((item, index) => {
+          // Phân tách tài khoản và mật khẩu nếu dùng định dạng user|pass
+          let user = item.accountInfo;
+          let pass = "";
+          if (item.accountInfo && item.accountInfo.includes('|')) {
+            const parts = item.accountInfo.split('|');
+            user = parts[0];
+            pass = parts[1];
+          }
+
+          return `
+            <div class="history-card">
+              <div class="history-card-header">
+                <span class="history-badge-success">✓ HOÀN TẤT</span>
+                <span class="history-time">${item.date}</span>
+              </div>
+              
+              <div class="history-prod-name">
+                <span>${item.gameName}</span>
+                <span class="history-prod-price">${Number(item.amount).toLocaleString()}đ</span>
+              </div>
+
+              <div class="cred-table">
+                <div class="cred-row">
+                  <span class="cred-label">TK:</span>
+                  <span class="cred-val" title="${user}">${user}</span>
+                  <button class="btn-copy-chip" onclick="copyAccount('${user}', this)">Copy TK</button>
+                </div>
+                ${pass ? `
+                  <div class="cred-row">
+                    <span class="cred-label">MK:</span>
+                    <span class="cred-val" id="pass-${index}" title="${pass}">••••••••</span>
+                    <div style="display: flex; gap: 4px;">
+                      <button class="btn-copy-chip" style="background: rgba(255,255,255,0.04);" onclick="togglePass('pass-${index}', '${pass}', this)">Hiện</button>
+                      <button class="btn-copy-chip" onclick="copyAccount('${pass}', this)">Copy MK</button>
+                    </div>
+                  </div>
+                ` : ''}
+              </div>
+
+              <button class="btn-copy-full" onclick="copyAccount('${item.accountInfo}', this)">Sao Chép Toàn Bộ In4</button>
             </div>
-            <div style="font-weight: 700; margin-bottom: 6px; font-size: 13px;">${item.gameName} <span style="color: var(--red-main);">(${Number(item.amount).toLocaleString()}đ)</span></div>
-            <div class="acc-box" style="margin: 6px 0; padding: 8px;">
-              <div class="acc-text">${item.accountInfo}</div>
-            </div>
-            <button class="btn-copy-game" style="padding: 7px; font-size: 11.5px;" onclick="copyAccount('${item.accountInfo}', this)">SAO CHÉP LẠI</button>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
 
       document.getElementById('historyModal').classList.add('active');
+    }
+
+    function togglePass(elementId, actualPass, btn) {
+      const el = document.getElementById(elementId);
+      if (el.innerText === '••••••••') {
+        el.innerText = actualPass;
+        btn.innerText = 'Ẩn';
+      } else {
+        el.innerText = '••••••••';
+        btn.innerText = 'Hiện';
+      }
+    }
+
+    function clearAllHistory() {
+      if (confirm("Bạn có chắc chắn muốn xoá toàn bộ lịch sử đã lưu trên máy này?")) {
+        localStorage.removeItem('wuwa_orders_history');
+        openHistoryModal();
+      }
     }
 
     function closeHistoryModal() {
@@ -761,12 +896,12 @@
       if (!text) return;
       navigator.clipboard.writeText(text).then(() => {
         const origin = btnElement.innerText;
-        btnElement.innerText = "✓ ĐÃ SAO CHÉP";
+        btnElement.innerText = "✓ Xong";
         btnElement.classList.add('copied');
         setTimeout(() => {
           btnElement.innerText = origin;
           btnElement.classList.remove('copied');
-        }, 2200);
+        }, 1800);
       });
     }
 
