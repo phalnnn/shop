@@ -38,7 +38,6 @@
 
     .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
 
-    /* Top Navigation Bar */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -82,7 +81,6 @@
     }
     .btn-nav:active { background: var(--red-main); }
 
-    /* Header */
     header { text-align: center; margin-bottom: 20px; }
     .status-tag {
       display: inline-flex;
@@ -124,7 +122,6 @@
     }
     header p { color: #cbd5e1; font-size: 13px; font-weight: 500; }
 
-    /* Quick Notice */
     .quick-notice {
       background: rgba(18, 14, 20, 0.85);
       border: 1px solid rgba(255, 30, 66, 0.35);
@@ -171,7 +168,6 @@
       box-shadow: 0 0 8px var(--red-main);
     }
 
-    /* Product Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
@@ -323,7 +319,7 @@
     .btn-buy:hover { background: #ff3355; box-shadow: 0 0 25px var(--red-glow); }
     .btn-buy:active { transform: scale(0.95); background: #e60026; }
 
-    /* Gallery Chi Tiết Ảnh */
+    /* Gallery Xem Chi Tiết Ảnh */
     .acc-gallery {
       margin-bottom: 14px;
       background: #000000;
@@ -374,7 +370,7 @@
       object-fit: cover;
     }
 
-    /* Modals */
+    /* Modal Overlay */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -504,7 +500,7 @@
     }
     .btn-copy-game.copied { background: #22c55e; }
 
-    /* Lịch sử */
+    /* Lịch sử mua hàng */
     .history-top-actions {
       display: flex;
       justify-content: space-between;
@@ -658,7 +654,7 @@
     </div>
   </div>
 
-  <!-- MODAL THANH TOÁN KÈM XEM 2 ẢNH CHI TIẾT -->
+  <!-- MODAL THANH TOÁN KÈM GALLERY ẢNH -->
   <div class="modal-overlay" id="paymentModal">
     <div class="modal">
       <button class="close-btn" onclick="closePayment()">&times;</button>
@@ -666,7 +662,7 @@
       <div id="step-qr">
         <h3 class="modal-title" id="modalProdTitle">XÁC NHẬN ĐƠN HÀNG</h3>
         
-        <!-- KHUNG XEM 2 ẢNH CHI TIẾT CỦA ACC -->
+        <!-- KHUNG XEM ẢNH CHI TIẾT -->
         <div class="acc-gallery" id="modalGallery">
           <div class="gallery-preview">
             <img id="galleryMainImg" src="" alt="Chi tiết acc" onclick="window.open(this.src, '_blank')">
@@ -742,7 +738,6 @@
     const BANK_NAME = "MB";
     const BANK_ACC = "2792637424";
     const DEFAULT_IMG = "./bg.jpg";
-
     const SUPABASE_IMG_BASE = "https://okfuncwyrjgeqddunzal.supabase.co/storage/v1/object/public/accs/";
 
     const ICON_COPY = `<svg viewBox="0 0 24 24"><path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z"/></svg>`;
@@ -884,15 +879,20 @@
     }
 
     function startPolling(orderCode) {
-      if (pollInterval) clearInterval(pollInterval);
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
 
       pollInterval = setInterval(async () => {
         try {
           const res = await fetch(`${BACKEND_URL}/api/order-status/${orderCode}`);
+          if (!res.ok) return;
           const data = await res.json();
 
           if (data.status === 'completed') {
             clearInterval(pollInterval);
+            pollInterval = null;
             currentAccData = data.accountInfo || "";
             document.getElementById('step-qr').style.display = 'none';
             document.getElementById('step-success').style.display = 'block';
@@ -1007,7 +1007,10 @@
       document.getElementById('paymentModal').classList.remove('active');
       document.querySelectorAll('.card').forEach(c => c.classList.remove('selected-active'));
       document.querySelectorAll('.btn-buy').forEach(b => b.innerText = "MUA NGAY");
-      if (pollInterval) clearInterval(pollInterval);
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
       loadAccounts();
     }
 
