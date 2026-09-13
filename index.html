@@ -1,199 +1,1033 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wuwa Shop - Mua Acc Game Tự Động</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GÓC BÁN ACC CỦA CHISA 💗 | WUWA STORE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #07080b;
+      --card-bg: rgba(15, 17, 24, 0.94);
+      --red-main: #ff1e42;
+      --red-glow: rgba(255, 30, 66, 0.6);
+      --white-pure: #ffffff;
+      --white-dim: #cbd5e1;
+      --gray-sub: #94a3b8;
+      --border-line: rgba(255, 255, 255, 0.1);
+      --border-red: rgba(255, 30, 66, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Be Vietnam Pro', sans-serif; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(255, 30, 66, 0.18) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(7, 8, 11, 0.85) 0%, rgba(7, 8, 11, 0.98) 100%),
+        url('./bg.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: var(--white-pure);
+      padding: 16px 14px 70px;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(14, 16, 23, 0.75);
+      border: 1px solid var(--border-line);
+      border-left: 3px solid var(--red-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+    }
+    .brand-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--white-pure);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .brand-logo span { color: var(--red-main); }
+    .brand-logo .heart { font-size: 15px; filter: drop-shadow(0 0 6px var(--red-main)); }
+    
+    .btn-nav {
+      background: rgba(255, 30, 66, 0.15);
+      border: 1px solid var(--border-red);
+      color: var(--white-pure);
+      padding: 7px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .btn-nav:active { background: var(--red-main); }
+
+    header { text-align: center; margin-bottom: 20px; }
+    .status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #ff3355;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--border-red);
+      padding: 4px 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-radius: 20px;
+    }
+    .pulse-dot {
+      width: 6px; height: 6px;
+      background: var(--red-main);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--red-main);
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.4; }
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(20px, 5.5vw, 36px);
+      font-weight: 900;
+      color: var(--white-pure);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      text-shadow: 0 0 25px rgba(255, 30, 66, 0.4);
+    }
+    header p { color: #cbd5e1; font-size: 13px; font-weight: 500; }
+
+    .quick-notice {
+      background: rgba(18, 14, 20, 0.85);
+      border: 1px solid rgba(255, 30, 66, 0.35);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .quick-notice-title {
+      color: #ff3b59;
+      font-weight: 800;
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .quick-notice-body { color: #cbd5e1; }
+    .quick-notice-body strong { color: #ffffff; }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding-left: 4px;
+    }
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 14px;
+      background: var(--red-main);
+      box-shadow: 0 0 8px var(--red-main);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-line);
+      border-top: 3px solid var(--red-main);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--red-main);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85), 0 0 20px var(--red-glow);
+    }
+
+    .card.selected-active {
+      border: 2px solid var(--red-main) !important;
+      box-shadow: 0 0 35px var(--red-glow), inset 0 0 15px rgba(255, 30, 66, 0.3) !important;
+      transform: scale(1.02) !important;
+      animation: selectPulse 0.8s infinite alternate ease-in-out;
+      z-index: 10;
+    }
+    @keyframes selectPulse {
+      0% { box-shadow: 0 0 20px var(--red-glow); }
+      100% { box-shadow: 0 0 40px rgba(255, 30, 66, 0.9); }
+    }
+
+    .thumb-wrapper {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background: #000000;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .thumb-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .thumb-wrapper img, .card.selected-active .thumb-wrapper img {
+      transform: scale(1.06);
+    }
+    .thumb-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 17, 24, 1) 0%, rgba(15, 17, 24, 0.1) 60%, transparent 100%);
+      pointer-events: none;
+    }
+    .thumb-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      color: #4ade80;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+    .thumb-count-tag {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .price-box {
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      padding-top: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .price-label { font-size: 11px; color: var(--gray-sub); text-transform: uppercase; font-weight: 700; }
+    .price-val {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .price-val span { color: var(--red-main); font-size: 13px; font-weight: 700; }
+
+    .btn-buy {
+      width: 100%;
+      background: var(--red-main);
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 30, 66, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-buy::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: 0.5s ease;
+    }
+    .btn-buy:hover::before { left: 150%; }
+    .btn-buy:hover { background: #ff3355; box-shadow: 0 0 25px var(--red-glow); }
+    .btn-buy:active { transform: scale(0.95); background: #e60026; }
+
+    /* Gallery Xem Chi Tiết Ảnh */
+    .acc-gallery {
+      margin-bottom: 14px;
+      background: #000000;
+      border: 1px solid var(--border-line);
+      border-radius: 6px;
+      padding: 8px;
+    }
+    .gallery-preview {
+      width: 100%;
+      height: 180px;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      background: #050608;
+    }
+    .gallery-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: zoom-in;
+      transition: 0.3s;
+    }
+    .gallery-thumbs {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      justify-content: center;
+    }
+    .gallery-thumb-item {
+      width: 65px;
+      height: 45px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.2s;
+    }
+    .gallery-thumb-item.active {
+      border-color: var(--red-main);
+      box-shadow: 0 0 10px var(--red-glow);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    .gallery-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 3, 5, 0.94);
+      backdrop-filter: blur(12px);
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      z-index: 1000;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: rgba(15, 17, 24, 0.98);
+      border: 1px solid var(--border-red);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 580px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 30, 66, 0.25);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px; right: 16px;
+      background: none; border: none;
+      font-size: 26px; color: var(--gray-sub);
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .modal-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--white-pure);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pay-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    @media (max-width: 500px) {
+      .pay-grid { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    .qr-frame {
+      background: #ffffff;
+      padding: 6px;
+      display: inline-block;
+      border-radius: 6px;
+    }
+    .qr-img { width: 170px; height: 170px; display: block; margin: 0 auto; }
+
+    .pay-spec {
+      background: rgba(0, 0, 0, 0.85);
+      border-left: 3px solid var(--red-main);
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 12.5px;
+      border-radius: 4px;
+    }
+    .spec-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .spec-row:last-child { margin-bottom: 0; }
+    .spec-label { color: #94a3b8; font-size: 11px; font-weight: 600; }
+    .spec-val { color: #ffffff; font-weight: 700; font-family: monospace; }
+    .spec-val.red { color: #ff3355; }
+
+    .gaming-spinner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+    .spin-bar {
+      width: 10px; height: 10px;
+      border: 2px solid var(--red-main);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .acc-box {
+      background: #000000;
+      border: 1px dashed var(--red-main);
+      padding: 12px;
+      margin: 12px 0;
+      text-align: left;
+      border-radius: 4px;
+    }
+    .acc-text {
+      color: #38bdf8;
+      font-family: monospace;
+      font-size: 13.5px;
+      word-break: break-all;
+      line-height: 1.5;
+    }
+
+    .btn-copy-game {
+      background: var(--red-main);
+      color: #ffffff;
+      border: none;
+      padding: 11px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+    .btn-copy-game.copied { background: #22c55e; }
+
+    /* Lịch sử mua hàng */
+    .history-top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-line);
+    }
+    .history-count { font-size: 13.5px; font-weight: 600; color: #94a3b8; }
+    .btn-clear-history {
+      background: rgba(255, 30, 66, 0.1);
+      border: 1px solid rgba(255, 30, 66, 0.4);
+      color: #ff4d6d;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-clear-history:hover { background: var(--red-main); color: #ffffff; }
+
+    .history-list {
+      max-height: 440px;
+      overflow-y: auto;
+      text-align: left;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-right: 4px;
+    }
+    .history-card {
+      background: rgba(10, 12, 18, 0.95);
+      border: 1px solid var(--border-line);
+      border-left: 4px solid var(--red-main);
+      padding: 16px 18px;
+      border-radius: 8px;
+    }
+    .history-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .history-badge-success {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      color: #4ade80;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .history-time { color: #94a3b8; font-family: monospace; font-size: 12px; }
+    .history-prod-name {
+      font-weight: 700;
+      font-size: 15.5px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .history-prod-price { color: var(--red-main); font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 800; }
+
+    .cred-table {
+      background: #050608;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cred-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .cred-label { color: #94a3b8; font-size: 12.5px; font-weight: 700; min-width: 40px; }
+    .cred-val { color: #38bdf8; font-family: monospace; font-size: 14px; word-break: break-all; flex: 1; padding-right: 8px; }
+
+    .btn-copy-chip {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+    .btn-copy-chip svg { width: 13px; height: 13px; fill: currentColor; }
+    .btn-copy-chip:hover { background: var(--red-main); border-color: var(--red-main); }
+    .btn-copy-chip.copied { background: #22c55e !important; border-color: #22c55e !important; }
+
+    .btn-copy-full {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(255, 30, 66, 0.45);
+      color: var(--white-pure);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-copy-full svg { width: 15px; height: 15px; fill: currentColor; }
+    .btn-copy-full:hover { background: var(--red-main); }
+    .btn-copy-full.copied { background: #22c55e !important; border-color: #22c55e !important; }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between p-4">
+<body>
 
-    <div class="w-full max-w-4xl mx-auto">
-        <header class="text-center my-6">
-            <h1 class="text-3xl font-extrabold tracking-wider text-amber-500 uppercase">Wuwa Shop Automation</h1>
-            <p class="text-slate-400 text-sm mt-1">Hệ thống mua bán tài khoản game tự động 24/7 qua SePay</p>
-        </header>
-
-        <!-- Danh sách tài khoản game -->
-        <main class="grid grid-cols-1 md:grid-cols-2 gap-4" id="accounts-list">
-            <!-- Dữ liệu acc sẽ được render tự động bằng JS -->
-            <div class="col-span-2 text-center text-slate-500 py-10">Đang tải danh sách tài khoản...</div>
-        </main>
+  <div class="container">
+    <div class="top-bar">
+      <div class="brand-logo">CHISA<span>CHANN.</span> <span class="heart">💗</span></div>
+      <button class="btn-nav" onclick="openHistoryModal()">📋 Lịch Sử</button>
     </div>
 
-    <!-- Modal Thanh Toán QR -->
-    <div id="payment-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
-            
-            <h3 class="text-xl font-bold text-center text-amber-400 mb-4">THANH TOÁN ĐƠN HÀNG</h3>
-            
-            <div class="bg-white p-3 rounded-xl flex justify-center mb-4">
-                <img id="qr-code-img" src="" alt="QR Code" class="w-64 h-64 object-contain">
-            </div>
+    <header>
+      <div class="status-tag">
+        <div class="pulse-dot"></div> Bán Tự Động 24/7
+      </div>
+      <h1>KHO TÀI KHOẢN KHỞI ĐẦU</h1>
+      <p>Quét mã VietQR nhận acc ngay sau 3 giây</p>
+    </header>
 
-            <div class="space-y-2 text-sm bg-slate-950 p-4 rounded-xl border border-slate-800">
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Ngân hàng:</span>
-                    <span class="font-semibold text-white">BIDV</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Số tài khoản:</span>
-                    <span class="font-semibold text-amber-400 select-all">8833226030</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Số tiền:</span>
-                    <span class="font-bold text-emerald-400 text-base" id="modal-price">0 VNĐ</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <span class="text-slate-400">Nội dung CK:</span>
-                    <span class="font-mono font-bold text-rose-400 bg-rose-950/40 px-2 py-0.5 rounded select-all" id="modal-content">...</span>
-                </div>
-            </div>
-
-            <div class="mt-6 text-center">
-                <div class="inline-flex items-center space-x-2 text-amber-400 text-sm font-medium animate-pulse">
-                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span>ĐANG ĐỐI SOÁT GIAO DỊCH...</span>
-                </div>
-            </div>
-        </div>
+    <div class="quick-notice">
+      <div class="quick-notice-title">⚠️ ĐIỀU KHOẢN & LƯU Ý BẢO MẬT:</div>
+      <div class="quick-notice-body">
+        Hệ thống sẽ <strong>tự động xóa acc</strong> sau khi giao dịch. Bạn vui lòng <strong>tự copy thông tin và đổi mật khẩu ngay</strong>. Shop miễn trừ trách nhiệm nếu bạn làm mất mật khẩu!
+      </div>
     </div>
 
-    <!-- Modal Nhận Tài Khoản Sau Khi Thanh Toán Thành Công -->
-    <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-slate-900 border border-emerald-500/50 rounded-2xl max-w-md w-full p-6 text-center shadow-2xl">
-            <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold">✓</div>
-            <h3 class="text-2xl font-bold text-emerald-400 mb-2">Thanh Toán Thành Công!</h3>
-            <p class="text-slate-400 text-sm mb-4">Tài khoản game của bạn đã được hệ thống tự động mở khóa:</p>
-            
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-left mb-6 space-y-2">
-                <div>
-                    <span class="text-xs text-slate-500 block">Thông tin tài khoản:</span>
-                    <span id="account-result" class="font-mono text-amber-300 font-bold select-all break-all">...</span>
-                </div>
-            </div>
+    <div class="section-title">DANH SÁCH TÀI KHOẢN SẴN HÀNG</div>
 
-            <button onclick="location.reload()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition">Hoàn Tất</button>
-        </div>
+    <div class="grid" id="productGrid">
+      <div style="grid-column: 1/-1; text-align: center; color: var(--gray-sub); padding: 50px 0; font-size: 14px;">
+        Đang đồng bộ dữ liệu tài khoản...
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Cấu hình thông tin Supabase & Ngân hàng BIDV chuẩn xác
-        const SUPABASE_URL = "https://xhnzxtldnwhvccayuvfs.supabase.co"; // Thay bằng URL Supabase của bạn nếu có thay đổi
-        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."; // Thay bằng Anon Key của bạn
+  <!-- MODAL THANH TOÁN KÈM GALLERY ẢNH -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal">
+      <button class="close-btn" onclick="closePayment()">&times;</button>
+      
+      <div id="step-qr">
+        <h3 class="modal-title" id="modalProdTitle">XÁC NHẬN ĐƠN HÀNG</h3>
         
-        const BANK_CODE = "BIDV";
-        const ACCOUNT_NO = "8833226030";
+        <!-- KHUNG XEM ẢNH CHI TIẾT -->
+        <div class="acc-gallery" id="modalGallery">
+          <div class="gallery-preview">
+            <img id="galleryMainImg" src="" alt="Chi tiết acc" onclick="window.open(this.src, '_blank')">
+          </div>
+          <div class="gallery-thumbs" id="galleryThumbContainer"></div>
+        </div>
 
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        <div class="pay-grid">
+          <div class="qr-frame">
+            <img id="qrImage" class="qr-img" src="" alt="Mã VietQR">
+          </div>
 
-        let currentOrderId = null;
-        let checkInterval = null;
+          <div class="pay-spec">
+            <div class="spec-row">
+              <span class="spec-label">Ngân hàng:</span>
+              <span class="spec-val">MB BANK</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Số TK:</span>
+              <span class="spec-val red">2792637424</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Số tiền:</span>
+              <span class="spec-val red" id="modalAmount">0 đ</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Nội dung CK:</span>
+              <span class="spec-val red" id="modalOrderCode">---</span>
+            </div>
+          </div>
+        </div>
 
-        async function fetchAccounts() {
-            const { data, error } = await supabaseClient
-                .from('accounts')
-                .select('*')
-                .eq('status', 'available');
+        <div class="gaming-spinner">
+          <div class="spin-bar"></div> ĐANG ĐỐI SOÁT GIAO DỊCH...
+        </div>
+      </div>
 
-            const container = document.getElementById('accounts-list');
-            if (error || !data || data.length === 0) {
-                container.innerHTML = `<div class="col-span-2 text-center text-slate-500 py-10">Hiện chưa có tài khoản nào trong kho.</div>`;
-                return;
-            }
+      <div id="step-success" style="display: none;">
+        <h3 class="modal-title" style="color: #22c55e;">GIAO ACC THÀNH CÔNG</h3>
+        <p style="font-size: 12px; color: #cbd5e1; margin-top: 3px;">Đã nhận tiền thành công</p>
 
-            container.innerHTML = data.map(acc => `
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between shadow-lg hover:border-amber-500/50 transition">
-                    <div>
-                        <h2 class="text-xl font-bold text-white mb-2">${acc.game_name}</h2>
-                        <p class="text-emerald-400 font-extrabold text-lg mb-4">${acc.price.toLocaleString()} VNĐ</p>
-                    </div>
-                    <button onclick="buyAccount(${acc.id}, ${acc.price})" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl transition">
-                        Mua Ngay
-                    </button>
+        <div class="acc-box">
+          <div class="acc-text" id="accDisplay"></div>
+        </div>
+
+        <button class="btn-copy-game" id="btnCopy" onclick="copyAccount(currentAccData, this)">SAO CHÉP THÔNG TIN ACC</button>
+        
+        <div style="margin-top: 12px; background: rgba(0, 0, 0, 0.85); border: 1px solid rgba(255, 30, 66, 0.4); padding: 10px; text-align: left; font-size: 11.5px; line-height: 1.5; border-radius: 4px;">
+          <p style="color: #ff3355; font-weight: 700; margin-bottom: 2px;">⚠️ LƯU Ý QUAN TRỌNG:</p>
+          <p style="color: #f1f5f9;">Acc đã được xóa khỏi hệ thống. Hãy copy và đổi pass ngay!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL LỊCH SỬ MUA HÀNG -->
+  <div class="modal-overlay" id="historyModal">
+    <div class="modal">
+      <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
+      <h3 class="modal-title">LỊCH SỬ ĐÃ MUA</h3>
+      
+      <div class="history-top-actions">
+        <span class="history-count" id="historyCount">0 đơn hàng đã mua</span>
+        <button class="btn-clear-history" onclick="clearAllHistory()">🗑️ Xóa Lịch Sử</button>
+      </div>
+
+      <div class="history-list" id="historyContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    const BACKEND_URL = "https://wuwa-shop-backend.onrender.com";
+    const BANK_NAME = "BIDV";
+    const BANK_ACC = "8833226030";
+    const DEFAULT_IMG = "./bg.jpg";
+    const SUPABASE_IMG_BASE = "https://okfuncwyrjgeqddunzal.supabase.co/storage/v1/object/public/accs/";
+
+    const ICON_COPY = `<svg viewBox="0 0 24 24"><path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z"/></svg>`;
+    const ICON_CHECK = `<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/></svg>`;
+    const ICON_EYE = `<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z"/></svg>`;
+    const ICON_EYE_OFF = `<svg viewBox="0 0 24 24"><path d="M12 7C14.76 7 17 9.24 17 12C17 12.65 16.87 13.26 16.65 13.82L19.57 16.74C21.07 15.49 22.27 13.86 23 12C21.27 7.61 17 4.5 12 4.5ZM12 4.5C10.6 4.5 9.27 4.75 8.07 5.24L10.18 7.35C10.74 7.13 11.35 7 12 7ZM2 4.27L4.28 6.55L4.74 7.01C3.08 8.3 1.78 10 1 12C2.73 16.39 7 19.5 12 19.5C13.55 19.5 15.03 19.2 16.38 18.66L16.8 19.08L19.73 22L21 20.73L3.27 3L2 4.27ZM7.53 9.8L9.08 11.35C9.03 11.56 9 11.78 9 12C9 13.66 10.34 15 12 15C12.22 15 12.44 14.97 12.65 14.92L14.2 16.47C13.53 16.8 12.79 17 12 17C9.24 17 7 14.76 7 12C7 11.21 7.2 10.47 7.53 9.8Z"/></svg>`;
+
+    let pollInterval = null;
+    let currentAccData = "";
+    let currentOrderInfo = null;
+
+    function parseImages(imgField) {
+      if (!imgField) return [DEFAULT_IMG];
+      const urls = imgField.split(/[,|]/).map(s => s.trim()).filter(Boolean);
+      if (urls.length === 0) return [DEFAULT_IMG];
+
+      return urls.map(u => {
+        if (u.startsWith('http')) return u;
+        if (u.startsWith('./')) return u;
+        return SUPABASE_IMG_BASE + u;
+      });
+    }
+
+    async function loadAccounts() {
+      try {
+        const res = await fetch(`${BACKEND_URL}/api/accounts`);
+        const data = await res.json();
+        const grid = document.getElementById('productGrid');
+
+        if (!data || data.length === 0) {
+          grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; background: rgba(14, 16, 24, 0.88); border: 1px dashed rgba(255, 30, 66, 0.4); padding: 35px 16px; border-radius: 6px;">
+              <div style="font-size: 36px; margin-bottom: 8px;">📦</div>
+              <div style="font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">KHO ĐANG HẾT HÀNG</div>
+              <div style="color: #cbd5e1; font-size: 13px;">Tất cả acc đợt này đã bán hết. Vui lòng quay lại sau!</div>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = data.map(item => {
+          const imgList = parseImages(item.image_url);
+          const coverImg = imgList[0];
+          const hasMultiple = imgList.length > 1;
+
+          return `
+            <div class="card" id="card-${item.id}">
+              <div class="thumb-wrapper" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price}, '${item.image_url || ''}')">
+                <span class="thumb-tag">● Sẵn hàng</span>
+                ${hasMultiple ? `<span class="thumb-count-tag">📷 ${imgList.length} Ảnh</span>` : ''}
+                <img src="${coverImg}" alt="${item.game_name}" onerror="this.src='${DEFAULT_IMG}'">
+              </div>
+              <div class="card-body">
+                <h3>${item.game_name}</h3>
+                <div>
+                  <div class="price-box">
+                    <span class="price-label">Giá bán</span>
+                    <div class="price-val">${Number(item.price).toLocaleString()} <span>VNĐ</span></div>
+                  </div>
+                  <button class="btn-buy" id="btn-buy-${item.id}" onclick="createOrderInstant(${item.id}, '${item.game_name}', ${item.price}, '${item.image_url || ''}')">MUA NGAY</button>
                 </div>
-            `).join('');
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        document.getElementById('productGrid').innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--red-main); padding: 50px 0;">Lỗi kết nối máy chủ. Vui lòng thử lại sau!</div>';
+      }
+    }
+
+    function setupGallery(imgField) {
+      const imgList = parseImages(imgField);
+      const mainImg = document.getElementById('galleryMainImg');
+      const thumbContainer = document.getElementById('galleryThumbContainer');
+
+      mainImg.src = imgList[0];
+      thumbContainer.innerHTML = imgList.map((img, idx) => `
+        <div class="gallery-thumb-item ${idx === 0 ? 'active' : ''}" onclick="switchGalleryImg('${img}', this)">
+          <img src="${img}" alt="Thumb ${idx + 1}" onerror="this.src='${DEFAULT_IMG}'">
+        </div>
+      `).join('');
+    }
+
+    function switchGalleryImg(src, thumbEl) {
+      document.getElementById('galleryMainImg').src = src;
+      document.querySelectorAll('.gallery-thumb-item').forEach(el => el.classList.remove('active'));
+      thumbEl.classList.add('active');
+    }
+
+    async function createOrderInstant(accId, name, price, imgField) {
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('selected-active'));
+      const activeCard = document.getElementById(`card-${accId}`);
+      const activeBtn = document.getElementById(`btn-buy-${accId}`);
+      
+      if (activeCard) activeCard.classList.add('selected-active');
+      if (activeBtn) activeBtn.innerText = "ĐANG KHỞI TẠO...";
+
+      document.getElementById('modalProdTitle').innerText = name;
+      setupGallery(imgField);
+
+      document.getElementById('step-qr').style.display = 'block';
+      document.getElementById('step-success').style.display = 'none';
+      document.getElementById('paymentModal').classList.add('active');
+
+      document.getElementById('modalAmount').innerText = "ĐANG TẠO...";
+      document.getElementById('modalOrderCode').innerText = "...";
+      document.getElementById('qrImage').src = "";
+
+      try {
+        const res = await fetch(`${BACKEND_URL}/api/create-order`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ accountId: accId, customerEmail: "gamer@local.shop" })
+        });
+
+        const order = await res.json();
+        if (order.error) {
+          alert(order.error);
+          closePayment();
+          return;
         }
 
-        async function buyAccount(accountId, price) {
-            const orderCode = 'DH' + Math.floor(1000 + Math.random() * 9000);
+        currentOrderInfo = {
+          orderCode: order.orderCode,
+          gameName: name,
+          amount: order.amount,
+          date: new Date().toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'}) + ' - ' + new Date().toLocaleDateString('vi-VN')
+        };
 
-            // Tạo đơn hàng mới trong bảng orders
-            const { error } = await supabaseClient
-                .from('orders')
-                .insert([{
-                    order_code: orderCode,
-                    account_id: accountId,
-                    amount: price,
-                    status: 'pending'
-                }]);
+        document.getElementById('modalAmount').innerText = `${Number(order.amount).toLocaleString()} VNĐ`;
+        document.getElementById('modalOrderCode').innerText = order.orderCode;
+        document.getElementById('qrImage').src = `https://qr.sepay.vn/img?bank=${BANK_NAME}&acc=${BANK_ACC}&amount=${order.amount}&des=${order.orderCode}`;
 
-            if (error) {
-                alert("Lỗi tạo đơn hàng: " + error.message);
-                return;
-            }
+        startPolling(order.orderCode);
+      } catch (e) {
+        alert("Không thể kết nối đến máy chủ!");
+        closePayment();
+      }
+    }
 
-            currentOrderId = orderCode;
+    function startPolling(orderCode) {
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
 
-            // Hiển thị thông tin lên Modal QR
-            const qrUrl = `https://img.vietqr.io/image/${BANK_CODE}-${ACCOUNT_NO}-compact2.png?amount=${price}&addInfo=${orderCode}`;
-            document.getElementById('qr-code-img').src = qrUrl;
-            document.getElementById('modal-price').innerText = price.toLocaleString() + ' VNĐ';
-            document.getElementById('modal-content').innerText = orderCode;
-            document.getElementById('payment-modal').classList.remove('hidden');
+      pollInterval = setInterval(async () => {
+        try {
+          const res = await fetch(`${BACKEND_URL}/api/order-status/${orderCode}`);
+          if (!res.ok) return;
+          const data = await res.json();
 
-            // Bắt đầupolling kiểm tra trạng thái đơn hàng mỗi 3 giây
-            startCheckingOrderStatus();
+          if (data.status === 'completed') {
+            clearInterval(pollInterval);
+            pollInterval = null;
+            currentAccData = data.accountInfo || "";
+            document.getElementById('step-qr').style.display = 'none';
+            document.getElementById('step-success').style.display = 'block';
+            document.getElementById('accDisplay').innerText = currentAccData;
+
+            saveToHistory({
+              ...currentOrderInfo,
+              accountInfo: currentAccData
+            });
+          }
+        } catch (e) {
+          console.error("Lỗi polling:", e);
         }
+      }, 2000);
+    }
 
-        function startCheckingOrderStatus() {
-            if (checkInterval) clearInterval(checkInterval);
+    function saveToHistory(orderData) {
+      let history = JSON.parse(localStorage.getItem('wuwa_orders_history') || '[]');
+      history.unshift(orderData);
+      localStorage.setItem('wuwa_orders_history', JSON.stringify(history));
+    }
 
-            checkInterval = setInterval(async () => {
-                if (!currentOrderId) return;
+    function openHistoryModal() {
+      const history = JSON.parse(localStorage.getItem('wuwa_orders_history') || '[]');
+      const container = document.getElementById('historyContainer');
+      const countEl = document.getElementById('historyCount');
 
-                const { data, error } = await supabaseClient
-                    .from('orders')
-                    .select('status, account_id')
-                    .eq('order_code', currentOrderId)
-                    .single();
+      countEl.innerText = `${history.length} đơn hàng đã mua`;
 
-                if (data && data.status === 'completed') {
-                    clearInterval(checkInterval);
-                    document.getElementById('payment-modal').classList.add('hidden');
-                    
-                    // Lấy thông tin tài khoản game đã mua
-                    fetchAccountDetails(data.account_id);
-                }
-            }, 3000);
-        }
+      if (history.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: var(--gray-sub); padding: 35px 0; font-size: 13.5px;">Bạn chưa có giao dịch nào trên thiết bị này.</p>';
+      } else {
+        container.innerHTML = history.map((item, index) => {
+          let user = item.accountInfo;
+          let pass = "";
+          if (item.accountInfo && item.accountInfo.includes('|')) {
+            const parts = item.accountInfo.split('|');
+            user = parts[0];
+            pass = parts[1];
+          }
 
-        async function fetchAccountDetails(accountId) {
-            const { data } = await supabaseClient
-                .from('accounts')
-                .select('account_info')
-                .eq('id', accountId)
-                .single();
+          return `
+            <div class="history-card">
+              <div class="history-card-header">
+                <span class="history-badge-success">✓ HOÀN TẤT</span>
+                <span class="history-time">${item.date}</span>
+              </div>
+              
+              <div class="history-prod-name">
+                <span>${item.gameName}</span>
+                <span class="history-prod-price">${Number(item.amount).toLocaleString()}đ</span>
+              </div>
 
-            if (data) {
-                document.getElementById('account-result').innerText = data.account_info;
-                document.getElementById('success-modal').classList.remove('hidden');
-            }
-        }
+              <div class="cred-table">
+                <div class="cred-row">
+                  <span class="cred-label">TK:</span>
+                  <span class="cred-val" title="${user}">${user}</span>
+                  <button class="btn-copy-chip" onclick="copyAccount('${user}', this)">
+                    ${ICON_COPY} <span>Copy TK</span>
+                  </button>
+                </div>
+                ${pass ? `
+                  <div class="cred-row">
+                    <span class="cred-label">MK:</span>
+                    <span class="cred-val" id="pass-${index}" title="${pass}">••••••••</span>
+                    <div style="display: flex; gap: 6px;">
+                      <button class="btn-copy-chip" style="background: rgba(255,255,255,0.04);" onclick="togglePass('pass-${index}', '${pass}', this)">
+                        ${ICON_EYE} <span>Hiện</span>
+                      </button>
+                      <button class="btn-copy-chip" onclick="copyAccount('${pass}', this)">
+                        ${ICON_COPY} <span>Copy MK</span>
+                      </button>
+                    </div>
+                  </div>
+                ` : ''}
+              </div>
 
-        function closeModal() {
-            if (checkInterval) clearInterval(checkInterval);
-            document.getElementById('payment-modal').classList.add('hidden');
-            location.reload();
-        }
+              <button class="btn-copy-full" onclick="copyAccount('${item.accountInfo}', this)">
+                ${ICON_COPY} <span>Sao Chép Toàn Bộ In4</span>
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
 
-        // Khởi chạy khi tải trang
-        fetchAccounts();
-    </script>
+      document.getElementById('historyModal').classList.add('active');
+    }
+
+    function togglePass(elementId, actualPass, btn) {
+      const el = document.getElementById(elementId);
+      if (el.innerText === '••••••••') {
+        el.innerText = actualPass;
+        btn.innerHTML = `${ICON_EYE_OFF} <span>Ẩn</span>`;
+      } else {
+        el.innerText = '••••••••';
+        btn.innerHTML = `${ICON_EYE} <span>Hiện</span>`;
+      }
+    }
+
+    function clearAllHistory() {
+      if (confirm("Bạn có chắc chắn muốn xoá toàn bộ lịch sử đã lưu trên máy này?")) {
+        localStorage.removeItem('wuwa_orders_history');
+        openHistoryModal();
+      }
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('historyModal').classList.remove('active');
+    }
+
+    function closePayment() {
+      document.getElementById('paymentModal').classList.remove('active');
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('selected-active'));
+      document.querySelectorAll('.btn-buy').forEach(b => b.innerText = "MUA NGAY");
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
+      loadAccounts();
+    }
+
+    function copyAccount(text, btnElement) {
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalHtml = btnElement.innerHTML;
+        btnElement.innerHTML = `${ICON_CHECK} <span>Đã Copy!</span>`;
+        btnElement.classList.add('copied');
+        setTimeout(() => {
+          btnElement.innerHTML = originalHtml;
+          btnElement.classList.remove('copied');
+        }, 1800);
+      });
+    }
+
+    loadAccounts();
+  </script>
 </body>
 </html>
